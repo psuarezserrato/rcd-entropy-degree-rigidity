@@ -55,6 +55,8 @@ lake build
 
 Downstream geometric applications of the Alexandrov entropy-degree theorem (`arXiv:2606.30403`) live in [`alexandrov-entropy-degree-applications`](https://github.com/psuarezserrato/alexandrov-entropy-degree-applications).
 
-## License
+## License & Citation
 
-Licensed under the GNU Affero General Public License v3.0 (AGPLv3) with non-commercial use notice ([`LICENSE.md`](LICENSE.md)).
+Licensed under the GNU Affero General Public License v3.0 (AGPLv3) for non-commercial use — see [LICENSE.md](https://github.com/psuarezserrato/gromov-genus0-compactness/blob/main/LICENSE.md) for details:
+This project is licensed under non-commercial use. If you wish to use this software in a commercial product, service, or enterprise environment, please contact the developer to purchase a commercial license or negotiate royalty terms.
+Authored by Pablo Suárez-Serrato (November 2026).
