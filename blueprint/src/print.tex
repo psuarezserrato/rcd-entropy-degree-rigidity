@@ -1,0 +1,27 @@
+% This file compiles the printable PDF version of the blueprint via pdflatex.
+\documentclass[a4paper,11pt]{report}
+
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{expl3}
+\usepackage{xparse}
+\usepackage{amssymb, amsthm, amsmath, mathtools}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+\usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=magenta,citecolor=blue]{hyperref}
+\usepackage[nameinlink, capitalize]{cleveref}
+
+\input{macros/common}
+\input{macros/print}
+
+\title{Entropy-Degree Rigidity for Closed Orientable Non-Collapsed $\mathsf{RCD}(K, N)$ and Alexandrov Spaces\\
+\large A Machine-Checked Formalization Blueprint in Lean 4}
+\author{Pablo Su\'arez-Serrato}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\input{content}
+\end{document}

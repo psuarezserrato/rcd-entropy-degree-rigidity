@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</title>
+<link rel="next" href="sect0004.html" title="Regular Values, Lipschitz Degree, and Homotopy Invariance" />
+<link rel="prev" href="sect0002.html" title="Sturm’s CAT(0) Barycenter and Equivariant Natural Maps" />
+<link rel="up" href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Regular Values, Lipschitz Degree, and Homotopy Invariance</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000004">3 Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def_ncrcd_alexandrov">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">3.1</span>
+    <span class="definition_thmtitle">Non-collapsed \(\mathsf{RCD}(K, N)\) stratification and Alexandrov specialization</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#def_ncrcd_alexandrov">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary" class="lean_decl">RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   A non-collapsed \(\mathsf{RCD}(K, N)\) space \((X, \mathsf{d}, \mathcal{H}^N)\) carries the regular set \(\mathcal{R}_N(X)\) (\(\theta _N(x) = 1\)), the open topological manifold locus \(\mathcal{M}(X) \supseteq \mathcal{R}_N(X)\), the closed singular set \(\mathcal{S}(X) = X \setminus \mathcal{M}(X)\), and singular strata \(\mathcal{S}^k(X)\). Closed Alexandrov \(N\)-spaces of curvature \(\ge \kappa \) without boundary embed into closed non-collapsed \(\mathsf{RCD}((N-1)\kappa , N)\) spaces via <span class="ttfamily">AlexandrovSpaceWithoutBoundary</span>. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_ncrcd_singular_strata">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">3.2</span>
+    <span class="theorem_thmtitle">Codimension-two singular stratification and Bishop–Gromov density gap (Lemma 2.1 &amp; Remark 4.3)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#thm_ncrcd_singular_strata">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000013"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#def_ncrcd_alexandrov">Definition 3.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.isClosed_singularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.isClosed_singularSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_compl_regularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_compl_regularSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_singularStratum_sub_one" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_singularStratum_sub_one</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_singularSet_eq_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_regularSet_eq_univ" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_regularSet_eq_univ</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_manifoldSet_eq_univ" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_manifoldSet_eq_univ</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.density_lt_one_of_not_mem_regularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.density_lt_one_of_not_mem_regularSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume_pos" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume_pos</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.singularSet_subset_singularStratum_sub_two" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.singularSet_subset_singularStratum_sub_two</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_compl_regularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_compl_regularSet_eq_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_singularSet_eq_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary.hausdorffMeasureCodimOne_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary.hausdorffMeasureCodimOne_singularSet_eq_zero</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    On any closed non-collapsed \(\mathsf{RCD}(K, N)\) space (and in particular on any closed Alexandrov \(N\)-space without boundary), \(\mathcal{R}_N(X)\) and \(\mathcal{M}(X)\) have full \(\mathcal{H}^N\)-measure, \(\mathcal{S}(X) \subseteq X \setminus \mathcal{R}_N(X) \subseteq \mathcal{S}^{N-2}(X)\) is closed with \(\mathcal{H}^{N-1}(\mathcal{S}(X)) = \mathcal{H}^{N-1}(X \setminus \mathcal{R}_N(X)) = 0\), \(\mathcal{H}^N(X) {\gt} 0\), and every point \(x \notin \mathcal{R}_N(X)\) satisfies the strict Bishop–Gromov density gap \(\theta _N(x) {\lt} 1\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000013">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Outer-measure monotonicity along \(\mathcal{S}(X) \subseteq X \setminus \mathcal{R}_N(X) \subseteq \mathcal{S}^{N-2}(X)\) and De Philippis–Gigli characterization \(\theta _N(x) = 1 \iff x \in \mathcal{R}_N(X)\) with \(\theta _N(x) \le 1\).</p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="def_cmmp_currents">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">3.3</span>
+    <span class="definition_thmtitle">Metric currents, fundamental manifold class, and CMMP orientation current</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#def_cmmp_currents">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#def_ncrcd_alexandrov">Definition 3.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.MetricCurrentOps" class="lean_decl">RCDEntropyDegree.RCD.MetricCurrentOps</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    <span class="ttfamily">MetricCurrentOps</span> packages Ambrosio–Kirchheim / Lang metric currents with boundary \(\partial \), mass measure \(\| T\| \), total mass \(\mathbf{M}(T)\), and Lipschitz pushforward \(f_\# \). <span class="ttfamily">FundamentalManifoldCurrent</span> captures the top-dimensional fundamental class \([\! [Y ]\! ]\in \mathbf{I}_N(Y)\) on a closed oriented Riemannian \(N\)-manifold, while <span class="ttfamily">CMMPOrientationCurrent</span> packages the Cavallucci–Marti–Mondino–Perales orientation current \(T \in \mathbf{I}_N(X)\) (\(\partial T = 0\), \(\| T\|  = \mathcal{H}^N\)). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_cmmp_mass_properties">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">3.4</span>
+    <span class="theorem_thmtitle">Mass and singular-nullity properties of the CMMP orientation current (Theorem 2.2)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0003.html#thm_cmmp_mass_properties">#</a>
+    
+    <a class="icon proof" href="sect0003.html#a0000000014"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#def_cmmp_currents">Definition 3.3</a></li>
+          
+          <li><a href="sect0003.html#thm_ncrcd_singular_strata">Theorem 3.2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume_pos" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume_pos</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_zsmul_eq" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_zsmul_eq</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_fundamentalClass" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_fundamentalClass</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.zsmul_fundamentalClass_inj" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.zsmul_fundamentalClass_inj</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent_pos" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent_pos</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_compl_regularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_compl_regularSet_eq_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_singularSet_eq_zero</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    For the fundamental current \([\! [Y ]\! ]\), \(\mathbf{M}(d[\! [Y ]\! ]) = |d|\, \mathcal{H}^N(Y)\) and \(\mathcal{H}^N(Y) {\gt} 0\), making \(d \mapsto d[\! [Y ]\! ]\) injective on \(\mathbb {Z}\). On \(X\), the CMMP current \(T\) satisfies \(\mathbf{M}(T) = \mathcal{H}^N(X) {\gt} 0\) and \(\| T\| (\mathcal{S}(X)) = \| T\| (X \setminus \mathcal{R}_N(X)) = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000014">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Follows from \(\| T\|  = \mathcal{H}^N\) combined with <a href="sect0003.html#thm_ncrcd_singular_strata">theorem 3.2</a> and \(\mathcal{H}^N(Y) {\gt} 0\).</p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0002.html" title="Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0004.html" title="Regular Values, Lipschitz Degree, and Homotopy Invariance"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

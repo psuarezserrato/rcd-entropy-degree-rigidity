@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</title>
+<link rel="prev" href="sect0004.html" title="Regular Values, Lipschitz Degree, and Homotopy Invariance" />
+<link rel="up" href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Regular Values, Lipschitz Degree, and Homotopy Invariance</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000006">5 Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def_metric_jacobian">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">5.1</span>
+    <span class="definition_thmtitle">Metric Jacobian on Euclidean approximate tangent spaces (Lemma 3.2)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#def_metric_jacobian">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#def_ncrcd_alexandrov">Definition 3.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.metricJacobian" class="lean_decl">RCDEntropyDegree.RCD.metricJacobian</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.metricJacobian_nonneg" class="lean_decl">RCDEntropyDegree.RCD.metricJacobian_nonneg</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    At \(\mathcal{H}^N\)-almost every regular point \(x \in \mathcal{R}_N(X)\) where \(\mathrm{Tan}(X, x) \cong E\) (\(\dim _\mathbb {R}E = N\)), the approximate linear differential \(d_x F : E \to _l[\mathbb {R}] E\) defines the non-negative metric Jacobian \(\mathrm{Jac}_x F := |\det (d_x F)|\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_mass_jacobian_pushforward">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">5.2</span>
+    <span class="lemma_thmtitle">Pushforward mass-Jacobian inequality (Lemma 3.3)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#lem_mass_jacobian_pushforward">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000018"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def_metric_jacobian">Definition 5.1</a></li>
+          
+          <li><a href="sect0004.html#thm_lipschitz_degree_pushforward">Theorem 4.3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.abs_sum_orientationSign_le_card" class="lean_decl">RCDEntropyDegree.RCD.abs_sum_orientationSign_le_card</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.pushforward_totalMass_le_integral_jacobian" class="lean_decl">RCDEntropyDegree.RCD.pushforward_totalMass_le_integral_jacobian</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.degree_mul_volume_le_integral_jacobian" class="lean_decl">RCDEntropyDegree.RCD.degree_mul_volume_le_integral_jacobian</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>    Because each regular-fiber orientation sign satisfies \(|\sum _{x \in F^{-1}(y) \cap \mathcal{R}_N(X)} \mathrm{sign}(\det d_x F)| \le \#  F^{-1}(y)\), the rectifiable area formula yields </p>
+<div class="displaymath" id="a0000000019">
+  \[ |\deg (f)|\, \mathcal{H}^N(Y) = \mathbf{M}(F_\#  T) \le \int _Y \mathrm{mult}_F(y)\, d\mathcal{H}^N(y) = \int _X \mathrm{Jac}_x F \,  d\mathcal{H}^N(x). \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000018">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Triangle inequality over finite fibers integrated against \(\mathcal{H}^N_Y\), combined with Proposition 2.5.</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_rcd_pointwise_jacobian_bound">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">5.3</span>
+    <span class="theorem_thmtitle">Pointwise entropy-Jacobian bound on \(\mathcal{R}_N(X)\) (Proposition 3.4)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#thm_rcd_pointwise_jacobian_bound">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000020"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#def_metric_jacobian">Definition 5.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_approximate_jacobian_bound" class="lean_decl">RCDEntropyDegree.RCD.rcd_approximate_jacobian_bound</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    On the Euclidean approximate tangent space \(\mathrm{Tan}(X, x) \cong \mathbb {R}^N\) at \(x \in \mathcal{R}_N(X)\), applying the rank-one Busemann Hessian equation and determinant inequality from <span class="ttfamily">BCG.RankOne</span> yields \(\mathrm{Jac}_x F_s = |\det (d_x F_s)| \le (s / h(\widetilde{Y}))^N\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000020">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Direct instantiation of <span class="ttfamily">BCG.RankOne.abs_det_le_div_entropy_pow_of_rankOne_det_ineq</span>.</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_rcd_entropy_degree_inequality">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">5.4</span>
+    <span class="theorem_thmtitle">Theorem 1.1 Part 1: Non-collapsed \(\mathsf{RCD}(K, N)\) and Alexandrov entropy-degree inequality</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#thm_rcd_entropy_degree_inequality">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000021"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#lem_mass_jacobian_pushforward">Lemma 5.2</a></li>
+          
+          <li><a href="sect0005.html#thm_rcd_pointwise_jacobian_bound">Theorem 5.3</a></li>
+          
+          <li><a href="sect0004.html#thm_wenger_homotopy_surjectivity">Theorem 4.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_entropy_degree_inequality" class="lean_decl">RCDEntropyDegree.RCD.rcd_entropy_degree_inequality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_rankOne_entropy_degree_theorem" class="lean_decl">RCDEntropyDegree.RCD.rcd_rankOne_entropy_degree_theorem</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_homological_index_entropy_inequality" class="lean_decl">RCDEntropyDegree.RCD.rcd_homological_index_entropy_inequality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.alexandrov_entropy_degree_inequality" class="lean_decl">RCDEntropyDegree.RCD.alexandrov_entropy_degree_inequality</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    For any closed orientable non-collapsed \(\mathsf{RCD}(K, N)\) space \((X, \mathsf{d}, \mathcal{H}^N)\) (or closed orientable \(N\)-dimensional Alexandrov space without boundary, Remark 4.3) and continuous map \(f : X \to Y\) to a closed oriented negatively curved locally symmetric \(N\)-manifold \(Y\), </p>
+<div class="displaymath" id="a0000000022">
+  \[ \mathrm{ind}_H(f)\, h(\widetilde{Y})^N\, \mathcal{H}^N(Y) \le |\deg (f)|\, h(\widetilde{Y})^N\, \mathcal{H}^N(Y) \le h(\overline{X})^N\, \mathcal{H}^N(X). \]
+</div>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000021">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Combines <a href="sect0005.html#lem_mass_jacobian_pushforward">lemma 5.2</a> with <a href="sect0005.html#thm_rcd_pointwise_jacobian_bound">theorem 5.3</a> and passes to the limit \(s \searrow h(\overline{X})\) via <span class="ttfamily">BCG.bcg_volume_entropy_inequality</span>.</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_rcd_equality_rigidity">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">5.5</span>
+    <span class="theorem_thmtitle">Theorem 1.1 Part 2: Mass-Jacobian sandwich and equality-case rigidity</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#thm_rcd_equality_rigidity">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000023"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#thm_rcd_entropy_degree_inequality">Theorem 5.4</a></li>
+          
+          <li><a href="sect0001.html#thm_homothetic_cover_invariance">Theorem 1.4</a></li>
+          
+          <li><a href="sect0002.html#thm_sturm_equivariant_natural_map">Theorem 2.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ae_jacobian_eq_one_of_normalized_equality" class="lean_decl">RCDEntropyDegree.RCD.ae_jacobian_eq_one_of_normalized_equality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_entropy_degree_equality_rigidity" class="lean_decl">RCDEntropyDegree.RCD.rcd_entropy_degree_equality_rigidity</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    When \(\deg (f) \ne 0\), \(|\deg (f)| = [\pi _1(Y) : f_* \pi _1(X)] = k \ge 1\), and equality holds in Theorem 1.1, homothetic rescaling by \(c = h(\overline{X})/h(\widetilde{Y})\) and lifting to the degree-\(k\) cover \(p : \widehat{Y} \to Y\) give \(|\deg (\hat{f})| = 1\) and \(\mathcal{H}_c^N(X) = \mathcal{H}^N(\widehat{Y})\). The \(1\)-Lipschitz limit map \(\hat{F}_\infty : X \to \widehat{Y}\) then saturates the mass-Jacobian sandwich (\(\mathrm{Jac}_x \hat{F}_\infty = 1\) a.e.), is surjective, promotes to a global metric isometry \((X, c\, \mathsf{d}_X) \xrightarrow {\sim } \widehat{Y}\), and forces \(\mathcal{S}(X) = X \setminus \mathcal{R}_N(X) = \emptyset \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000023">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Combines <span class="ttfamily">finite_cover_entropy_degree_reduction</span>, <span class="ttfamily">homothetic_normalization</span>, the a.e. integral sandwich \(\mathcal{H}^N(\widehat{Y}) \le \int _X \mathrm{Jac}_x \hat{F}_\infty \le \mathcal{H}_c^N(X) = \mathcal{H}^N(\widehat{Y})\), surjectivity from \(\deg (\hat{F}_\infty ) \ne 0\), and Lipschitz-volume rigidity.</p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0004.html" title="Regular Values, Lipschitz Degree, and Homotopy Invariance"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

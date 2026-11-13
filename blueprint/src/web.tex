@@ -1,0 +1,27 @@
+% This file compiles the web version of the blueprint via plasTeX.
+\documentclass{report}
+
+\usepackage{amssymb, amsthm, amsmath}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.svg,.png,.jpg}
+\usepackage{hyperref}
+\usepackage[capitalize]{cleveref}
+\usepackage[showmore, dep_graph, project=../../]{blueprint}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+\input{macros/common}
+\input{macros/web}
+
+\home{https://github.com/psuarezserrato/rcd-entropy-degree-rigidity}
+\github{https://github.com/psuarezserrato/rcd-entropy-degree-rigidity}
+\dochome{https://github.com/psuarezserrato/rcd-entropy-degree-rigidity}
+
+\title{Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4}
+\author{Pablo Su\'arez-Serrato}
+
+\begin{document}
+\maketitle
+\input{content}
+\end{document}

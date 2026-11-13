@@ -1,0 +1,199 @@
+% Blueprint for "Entropy-degree rigidity for non-collapsed RCD spaces"
+% (P. Suárez-Serrato, 2026) in Lean 4 (RCDEntropyDegree).
+
+% =========================================================================
+\chapter{Metric-Measure Volume Entropy, Bishop--Gromov Growth, and Scaling}
+
+\begin{definition}[Logarithmic ball-volume rate, exponential growth, and entropy-volume product]
+\label{def_mm_volume_entropy}
+\lean{RCDEntropyDegree.MetricMeasure.ballVolumeLogRate, RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth, RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight, RCDEntropyDegree.MetricMeasure.entropyVolumeProduct}
+\leanok
+For a metric-measure space $(Z, \mathsf{d}, \mathfrak{m})$ and basepoint $x_0 \in Z$, the logarithmic ball-volume rate is $R^{-1} \log \mathfrak{m}(B(x_0, R))$, exponential volume growth $\mathfrak{m}(B(x_0, R)) \le C e^{h R}$ is captured by \texttt{HasExponentialVolumeGrowth}, the normalized exponential weights $w_s(x, z)$ normalize $e^{-s\,\mathsf{d}(x, z)}$ over finite samples, and the scale-invariant entropy-volume product is $h(\overline{X})^N \mathcal{H}^N(X)$.
+\end{definition}
+
+\begin{theorem}[Basepoint independence and Bishop--Gromov hyperbolic growth bound]
+\label{thm_basepoint_bishop_gromov}
+\lean{RCDEntropyDegree.MetricMeasure.ball_subset_ball_add_dist, RCDEntropyDegree.MetricMeasure.measure_ball_le_measure_ball_add_dist, RCDEntropyDegree.MetricMeasure.toReal_measure_ball_le_add_dist, RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.of_basepoint, RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.ballVolumeLogRate_le, RCDEntropyDegree.MetricMeasure.hyperbolicSn_le_mul_exp, RCDEntropyDegree.MetricMeasure.hyperbolicDensity_le_pow_mul_exp}
+\leanok
+\uses{def_mm_volume_entropy}
+By the triangle inclusion $B(x_0, R) \subseteq B(x_1, R + \mathsf{d}(x_0, x_1))$, exponential volume growth with exponent $h$ transfers across all basepoints $x_0, x_1 \in Z$ and bounds $R^{-1}\log\mathfrak{m}(B(x_0, R)) \le h + R^{-1}\log C$. Moreover, the hyperbolic model density satisfies $(\sinh(\kappa r)/\kappa)^{N-1} \le (2\kappa)^{-(N-1)} e^{(N-1)\kappa r}$, giving the Bishop--Gromov upper bound $h(\overline{X}) \le (N-1)\kappa$ under $\mathsf{RCD}(-(N-1)\kappa^2, N)$.
+\end{theorem}
+\begin{proof}\leanok Triangle inequality ball monotonicity and the elementary estimate $2\sinh(u) \le e^u$ raised to the $(N-1)$-st power.\end{proof}
+
+\begin{theorem}[Isometric invariance and $\pi_1$-equivariance of normalized exponential weights]
+\label{thm_equivariant_weights}
+\lean{RCDEntropyDegree.MetricMeasure.exponentialWeight_isometry, RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_pos, RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_nonneg, RCDEntropyDegree.MetricMeasure.sum_normalizedExponentialWeight_eq_one, RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_equivariant}
+\leanok
+\uses{def_mm_volume_entropy}
+Every distance-preserving action $\gamma$ preserves $e^{-s\,\mathsf{d}(x, z)}$ and hence yields strictly positive, probability-normalized, $\pi_1(X)$-equivariant weights $w_s(\gamma x, \gamma z_i) = w_s(x, z_i)$.
+\end{theorem}
+\begin{proof}\leanok Direct invariance of $\mathsf{d}(\gamma x, \gamma z) = \mathsf{d}(x, z)$ inside the numerator and denominator sum.\end{proof}
+
+\begin{theorem}[Homothetic invariance, normalization, and finite orientation-cover reduction]
+\label{thm_homothetic_cover_invariance}
+\lean{RCDEntropyDegree.MetricMeasure.exp_rescaled_dist_eq, RCDEntropyDegree.MetricMeasure.logRate_homothetic_scaling, RCDEntropyDegree.MetricMeasure.entropyVolumeProduct_homothetic_invariance, RCDEntropyDegree.MetricMeasure.homothetic_normalization, RCDEntropyDegree.MetricMeasure.finite_cover_entropy_degree_reduction}
+\leanok
+\uses{thm_basepoint_bishop_gromov}
+Under homothetic metric rescaling $(\mathsf{d}, \mathcal{H}^N) \mapsto (\lambda \mathsf{d}, \lambda^N \mathcal{H}^N)$ ($\lambda > 0$), volume entropy scales by $\lambda^{-1}$ and Hausdorff volume by $\lambda^N$, leaving $h(\overline{X})^N \mathcal{H}^N(X)$ invariant. Passing to the $k$-sheeted intermediate cover $\widehat{Y} \to Y$ associated to $f_* \pi_1(X) \le \pi_1(Y)$ with $|\deg(f)| = k |\deg(\hat{f})|$ and normalizing by $c = h(\overline{X})/h(\widetilde{Y})$ yields $|\deg(\hat{f})| = 1$, $c^{-1} h(\overline{X}) = h(\widetilde{Y})$, and $c^N \mathcal{H}^N(X) = \mathcal{H}^N(\widehat{Y})$.
+\end{theorem}
+\begin{proof}\leanok Cancellation of $\lambda^{-N}\lambda^N = 1$ and positive factor $k > 0$ in the covering degree factorization.\end{proof}
+
+% =========================================================================
+\chapter{Sturm's $\mathrm{CAT}(0)$ Barycenter and Equivariant Natural Maps}
+
+\begin{definition}[Sturm's renormalized $d^2$-barycenter functional and geodesic homotopy]
+\label{def_sturm_functional}
+\lean{RCDEntropyDegree.MetricMeasure.sturmSummand, RCDEntropyDegree.MetricMeasure.sturmFunctional, RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint, RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift, RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient}
+\leanok
+For a probability weight $w$ supported at points $y_i$ in a metric space $(Y, \mathsf{d}_Y)$ and reference basepoint $o \in Y$, Sturm's renormalized $d^2$-barycenter functional is $\mathcal{S}_{w, y, o}(z) = \sum_i w_i (\mathsf{d}_Y(y_i, z)^2 - \mathsf{d}_Y(o, y_i)^2)$. Together with the $\mathrm{CAT}(0)$ semi-parallelogram midpoint predicate \texttt{IsCATZeroMidpoint}, this supports the lifted geodesic homotopy $\overline{H}_s(x, t)$ and its quotient descent $H_s : X \times [0, 1] \to Y$.
+\end{definition}
+
+\begin{lemma}[First-moment linear growth bound and basepoint independence]
+\label{lem_sturm_growth_basepoint}
+\lean{RCDEntropyDegree.MetricMeasure.sturmSummand_basepoint_self, RCDEntropyDegree.MetricMeasure.sturmSummand_sub_sturmSummand, RCDEntropyDegree.MetricMeasure.abs_sturmSummand_le, RCDEntropyDegree.MetricMeasure.sturmFunctional_basepoint_self, RCDEntropyDegree.MetricMeasure.sturmFunctional_eq_two_mul_metricEnergy_sub, RCDEntropyDegree.MetricMeasure.sturmFunctional_sub_basepoint, RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_basepoint, RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_metricEnergy, RCDEntropyDegree.MetricMeasure.continuous_sturmFunctional, RCDEntropyDegree.MetricMeasure.abs_sturmFunctional_le}
+\leanok
+\uses{def_sturm_functional}
+Sturm's summand satisfies $|\mathsf{d}(y, z)^2 - \mathsf{d}(o, y)^2| \le \mathsf{d}(o, z)(\mathsf{d}(o, z) + 2\,\mathsf{d}(o, y))$, requiring only finite first moments, and shifting $o_1 \mapsto o_2$ adds a constant independent of $z$. Consequently, $\mathcal{S}_{w, y, o}$ is continuous and shares exact global minimizers with \texttt{metricEnergy}.
+\end{lemma}
+\begin{proof}\leanok Factor $a^2 - b^2 = (a - b)(a + b)$ with triangle inequality bounds and note that $\mathcal{S}_{w, y, o}(z) = 2\,\mathrm{metricEnergy}(w, y, z) - \sum_i w_i\,\mathsf{d}(o, y_i)^2$.\end{proof}
+
+\begin{theorem}[$\mathrm{CAT}(0)$ midpoint deficit, Sturm variance inequality, and uniqueness]
+\label{thm_sturm_cat0_variance}
+\lean{RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint.strictMidJensenOn_halfSqDist, RCDEntropyDegree.MetricMeasure.sturmFunctional_midpoint_le, RCDEntropyDegree.MetricMeasure.sturm_variance_inequality, RCDEntropyDegree.MetricMeasure.sturmFunctional_unique_min}
+\leanok
+\uses{lem_sturm_growth_basepoint}
+Under \texttt{IsCATZeroMidpoint}, $\mathcal{S}_{w, y, o}$ satisfies the strong midpoint convexity deficit $\mathcal{S}_{w, y, o}(m) \le \frac{1}{2}\mathcal{S}_{w, y, o}(a) + \frac{1}{2}\mathcal{S}_{w, y, o}(b) - \frac{1}{4}\mathsf{d}_Y(a, b)^2$. Any minimizer $q = \mathrm{bar}(\nu)$ therefore satisfies Sturm's variance inequality $\frac{1}{2}\mathsf{d}_Y(q, z)^2 \le \mathcal{S}_{w, y, o}(z) - \mathcal{S}_{w, y, o}(q)$ and is the unique global minimizer.
+\end{theorem}
+\begin{proof}\leanok Weighted summation of the $\mathrm{CAT}(0)$ semi-parallelogram law and comparison at $m = \mathrm{mid}(q, z)$ against minimality at $q$.\end{proof}
+
+\begin{theorem}[$\pi_1$-equivariance of Sturm natural maps and geodesic homotopy descent (Lemma 3.1)]
+\label{thm_sturm_equivariant_natural_map}
+\lean{RCDEntropyDegree.MetricMeasure.sturmFunctional_isometry, RCDEntropyDegree.MetricMeasure.sturmBarycenter_equivariant, RCDEntropyDegree.MetricMeasure.sturmNaturalMap_equivariant, RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_zero, RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_one, RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_equivariant, RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_zero, RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_one}
+\leanok
+\uses{thm_sturm_cat0_variance, thm_equivariant_weights}
+For any isometric $\pi_1(X)$-representation $\rho : \Gamma \curvearrowright \widetilde{Y}$, unique minimization forces $\mathrm{bar}(\rho(\gamma)_* \nu) = \rho(\gamma)\,\mathrm{bar}(\nu)$. Combining with $\Gamma$-equivariance of $w_s(x, z)$ yields $\rho$-equivariance of the lifted natural map $\overline{F}_s$ and of the geodesic homotopy $\overline{H}_s$, which therefore descends to a homotopy $H_s : X \times [0, 1] \to Y$ between $f$ ($t = 0$) and $F_s$ ($t = 1$).
+\end{theorem}
+\begin{proof}\leanok Isometry covariance of $\mathcal{S}_{w, y, o}$ transfers the minimizing property of $q$ to $\rho(\gamma) q$, and uniqueness yields equality.\end{proof}
+
+% =========================================================================
+\chapter{Non-Collapsed $\mathsf{RCD}(K, N)$ Structure and CMMP Orientation Currents}
+
+\begin{definition}[Non-collapsed $\mathsf{RCD}(K, N)$ stratification and Alexandrov specialization]
+\label{def_ncrcd_alexandrov}
+\lean{RCDEntropyDegree.RCD.NonCollapsedRCDStructure, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet, RCDEntropyDegree.RCD.ClosedNonCollapsedRCD, RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume, RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary}
+\leanok
+A non-collapsed $\mathsf{RCD}(K, N)$ space $(X, \mathsf{d}, \mathcal{H}^N)$ carries the regular set $\mathcal{R}_N(X)$ ($\theta_N(x) = 1$), the open topological manifold locus $\mathcal{M}(X) \supseteq \mathcal{R}_N(X)$, the closed singular set $\mathcal{S}(X) = X \setminus \mathcal{M}(X)$, and singular strata $\mathcal{S}^k(X)$. Closed Alexandrov $N$-spaces of curvature $\ge \kappa$ without boundary embed into closed non-collapsed $\mathsf{RCD}((N-1)\kappa, N)$ spaces via \texttt{AlexandrovSpaceWithoutBoundary}.
+\end{definition}
+
+\begin{theorem}[Codimension-two singular stratification and Bishop--Gromov density gap (Lemma 2.1 \& Remark 4.3)]
+\label{thm_ncrcd_singular_strata}
+\lean{RCDEntropyDegree.RCD.NonCollapsedRCDStructure.isClosed_singularSet, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_compl_regularSet, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_singularStratum_sub_one, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_singularSet_eq_zero, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_regularSet_eq_univ, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_manifoldSet_eq_univ, RCDEntropyDegree.RCD.NonCollapsedRCDStructure.density_lt_one_of_not_mem_regularSet, RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume_pos, RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.singularSet_subset_singularStratum_sub_two, RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_compl_regularSet_eq_zero, RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_singularSet_eq_zero, RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary.hausdorffMeasureCodimOne_singularSet_eq_zero}
+\leanok
+\uses{def_ncrcd_alexandrov}
+On any closed non-collapsed $\mathsf{RCD}(K, N)$ space (and in particular on any closed Alexandrov $N$-space without boundary), $\mathcal{R}_N(X)$ and $\mathcal{M}(X)$ have full $\mathcal{H}^N$-measure, $\mathcal{S}(X) \subseteq X \setminus \mathcal{R}_N(X) \subseteq \mathcal{S}^{N-2}(X)$ is closed with $\mathcal{H}^{N-1}(\mathcal{S}(X)) = \mathcal{H}^{N-1}(X \setminus \mathcal{R}_N(X)) = 0$, $\mathcal{H}^N(X) > 0$, and every point $x \notin \mathcal{R}_N(X)$ satisfies the strict Bishop--Gromov density gap $\theta_N(x) < 1$.
+\end{theorem}
+\begin{proof}\leanok Outer-measure monotonicity along $\mathcal{S}(X) \subseteq X \setminus \mathcal{R}_N(X) \subseteq \mathcal{S}^{N-2}(X)$ and De Philippis--Gigli characterization $\theta_N(x) = 1 \iff x \in \mathcal{R}_N(X)$ with $\theta_N(x) \le 1$.\end{proof}
+
+\begin{definition}[Metric currents, fundamental manifold class, and CMMP orientation current]
+\label{def_cmmp_currents}
+\lean{RCDEntropyDegree.RCD.MetricCurrentOps, RCDEntropyDegree.RCD.FundamentalManifoldCurrent, RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume, RCDEntropyDegree.RCD.CMMPOrientationCurrent}
+\leanok
+\uses{def_ncrcd_alexandrov}
+\texttt{MetricCurrentOps} packages Ambrosio--Kirchheim / Lang metric currents with boundary $\partial$, mass measure $\|T\|$, total mass $\mathbf{M}(T)$, and Lipschitz pushforward $f_\#$. \texttt{FundamentalManifoldCurrent} captures the top-dimensional fundamental class $\llbracket Y \rrbracket \in \mathbf{I}_N(Y)$ on a closed oriented Riemannian $N$-manifold, while \texttt{CMMPOrientationCurrent} packages the Cavallucci--Marti--Mondino--Perales orientation current $T \in \mathbf{I}_N(X)$ ($\partial T = 0$, $\|T\| = \mathcal{H}^N$).
+\end{definition}
+
+\begin{theorem}[Mass and singular-nullity properties of the CMMP orientation current (Theorem 2.2)]
+\label{thm_cmmp_mass_properties}
+\lean{RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume_pos, RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_zsmul_eq, RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_fundamentalClass, RCDEntropyDegree.RCD.FundamentalManifoldCurrent.zsmul_fundamentalClass_inj, RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent, RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent_pos, RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_compl_regularSet_eq_zero, RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_singularSet_eq_zero}
+\leanok
+\uses{def_cmmp_currents, thm_ncrcd_singular_strata}
+For the fundamental current $\llbracket Y \rrbracket$, $\mathbf{M}(d\llbracket Y \rrbracket) = |d|\,\mathcal{H}^N(Y)$ and $\mathcal{H}^N(Y) > 0$, making $d \mapsto d\llbracket Y \rrbracket$ injective on $\Z$. On $X$, the CMMP current $T$ satisfies $\mathbf{M}(T) = \mathcal{H}^N(X) > 0$ and $\|T\|(\mathcal{S}(X)) = \|T\|(X \setminus \mathcal{R}_N(X)) = 0$.
+\end{theorem}
+\begin{proof}\leanok Follows from $\|T\| = \mathcal{H}^N$ combined with \cref{thm_ncrcd_singular_strata} and $\mathcal{H}^N(Y) > 0$.\end{proof}
+
+% =========================================================================
+\chapter{Regular Values, Lipschitz Degree, and Homotopy Invariance}
+
+\begin{definition}[Singular value image, regular value locus, and Lipschitz pushforward degree]
+\label{def_regular_values_degree}
+\lean{RCDEntropyDegree.RCD.singularValueImage, RCDEntropyDegree.RCD.regularValueSet, RCDEntropyDegree.RCD.regularDomainSet, RCDEntropyDegree.RCD.LipschitzDegreePushforward}
+\leanok
+\uses{def_cmmp_currents}
+For a map $f : X \to Y$, $\Sigma_f := f(\mathcal{S}(X))$ is the singular value image, $V_f := Y \setminus \Sigma_f$ is the regular value locus, and $U_f := f^{-1}(V_f)$ is the regular domain locus. \texttt{LipschitzDegreePushforward} encodes $f_\# T = \deg(f)\llbracket Y \rrbracket$ via Federer constancy on $Y$ together with the local degree integral formula on $U_f$.
+\end{definition}
+
+\begin{lemma}[Openness and full measure of regular values $V_f = Y \setminus f(\mathcal{S}(X))$ (Lemma 2.3)]
+\label{lem_regular_values_full_measure}
+\lean{RCDEntropyDegree.RCD.regularDomainSet_subset_manifoldSet, RCDEntropyDegree.RCD.isCompact_singularValueImage, RCDEntropyDegree.RCD.isClosed_singularValueImage, RCDEntropyDegree.RCD.isOpen_regularValueSet, RCDEntropyDegree.RCD.isOpen_regularDomainSet, RCDEntropyDegree.RCD.hausdorffMeasureCodimOne_singularValueImage_eq_zero, RCDEntropyDegree.RCD.volumeMeasure_regularValueSet_eq_univ}
+\leanok
+\uses{def_regular_values_degree, thm_ncrcd_singular_strata}
+For any continuous map $f : X \to Y$ ($X$ compact, $Y$ Hausdorff), $U_f \subseteq \mathcal{M}(X)$, $\Sigma_f$ is compact and closed, and $V_f, U_f$ are open. When $f$ is Lipschitz, $\mathcal{H}^{N-1}(\Sigma_f) = 0$ and $\mathcal{H}^N(V_f) = \mathcal{H}^N(Y)$.
+\end{lemma}
+\begin{proof}\leanok Continuous image of the closed compact set $\mathcal{S}(X)$ and Lipschitz Hausdorff bound $\mathcal{H}^{N-1}(f(\mathcal{S}(X))) \le \mathrm{Lip}(f)^{N-1}\mathcal{H}^{N-1}(\mathcal{S}(X)) = 0$.\end{proof}
+
+\begin{theorem}[Current pushforward degree identity and Lipschitz volume bound (Proposition 2.5)]
+\label{thm_lipschitz_degree_pushforward}
+\lean{RCDEntropyDegree.RCD.LipschitzDegreePushforward.totalMass_pushforward_eq_abs_degree_mul_volume, RCDEntropyDegree.RCD.LipschitzDegreePushforward.degree_eq_inv_volume_mul_integral, RCDEntropyDegree.RCD.LipschitzDegreePushforward.abs_degree_mul_volume_le_lip_pow_mul_volume, RCDEntropyDegree.RCD.LipschitzDegreePushforward.manifoldVolume_le_totalVolume_of_one_lipschitz}
+\leanok
+\uses{lem_regular_values_full_measure, thm_cmmp_mass_properties}
+A Lipschitz map $f : X \to Y$ satisfies $\mathbf{M}(f_\# T) = |\deg(f)|\,\mathcal{H}^N(Y)$, $\deg(f) = \mathcal{H}^N(Y)^{-1} \int_Y \deg(f; U_X, y)\,d\mathcal{H}^N(y)$, and $|\deg(f)|\,\mathcal{H}^N(Y) \le \mathrm{Lip}(f)^N \mathcal{H}^N(X)$ (in particular $\mathcal{H}^N(Y) \le \mathcal{H}^N(X)$ when $f$ is $1$-Lipschitz and $\deg(f) \ne 0$).
+\end{theorem}
+\begin{proof}\leanok Combines $f_\# T = \deg(f)\llbracket Y \rrbracket$ with mass homogeneity $\mathbf{M}(f_\# T) \le \mathrm{Lip}(f)^N \mathbf{M}(T)$.\end{proof}
+
+\begin{theorem}[Wenger homotopy invariance, surjectivity, and homological index (Lemma 2.6, Cor. 2.8, Rmk. 4.2)]
+\label{thm_wenger_homotopy_surjectivity}
+\lean{RCDEntropyDegree.RCD.wenger_homotopy_invariance, RCDEntropyDegree.RCD.surjective_of_degree_ne_zero, RCDEntropyDegree.RCD.degree_comp_of_pushforward, RCDEntropyDegree.RCD.homologicalIndex_dvd_natAbs_degree, RCDEntropyDegree.RCD.homologicalIndex_le_natAbs_degree}
+\leanok
+\uses{thm_lipschitz_degree_pushforward}
+Since $\partial T = 0$ and $\mathcal{H}^{N+1}(Y) = 0$, Wenger's homotopy formula forces $(f_1)_\# T = (f_0)_\# T$ and $\deg(f_1) = \deg(f_0)$ across Lipschitz homotopies. Any map with $\deg(f) \ne 0$ is surjective, degree multiplies across covers ($\deg(p \circ \hat{f}) = \deg(p)\deg(\hat{f})$), and Mitsuishi's homological index satisfies $\mathrm{ind}_H(f) \mid |\deg(f)|$ and $\mathrm{ind}_H(f) \le |\deg(f)|$.
+\end{theorem}
+\begin{proof}\leanok Injectivity of $d \mapsto d\llbracket Y \rrbracket$ equates degrees from $(f_1)_\# T = (f_0)_\# T$; if $\mathrm{range}(f)$ missed an open ball $U \subseteq Y$, positive measure of $U$ would contradict support nullity of $\deg(f)\llbracket Y \rrbracket$.\end{proof}
+
+% =========================================================================
+\chapter{Rectifiable Jacobians and $\mathsf{RCD}(K, N)$ Entropy-Degree Rigidity}
+
+\begin{definition}[Metric Jacobian on Euclidean approximate tangent spaces (Lemma 3.2)]
+\label{def_metric_jacobian}
+\lean{RCDEntropyDegree.RCD.metricJacobian, RCDEntropyDegree.RCD.metricJacobian_nonneg}
+\leanok
+\uses{def_ncrcd_alexandrov}
+At $\mathcal{H}^N$-almost every regular point $x \in \mathcal{R}_N(X)$ where $\mathrm{Tan}(X, x) \cong E$ ($\dim_\R E = N$), the approximate linear differential $d_x F : E \to_l[\R] E$ defines the non-negative metric Jacobian $\mathrm{Jac}_x F := |\det(d_x F)|$.
+\end{definition}
+
+\begin{lemma}[Pushforward mass-Jacobian inequality (Lemma 3.3)]
+\label{lem_mass_jacobian_pushforward}
+\lean{RCDEntropyDegree.RCD.abs_sum_orientationSign_le_card, RCDEntropyDegree.RCD.pushforward_totalMass_le_integral_jacobian, RCDEntropyDegree.RCD.degree_mul_volume_le_integral_jacobian}
+\leanok
+\uses{def_metric_jacobian, thm_lipschitz_degree_pushforward}
+Because each regular-fiber orientation sign satisfies $|\sum_{x \in F^{-1}(y) \cap \mathcal{R}_N(X)} \mathrm{sign}(\det d_x F)| \le \# F^{-1}(y)$, the rectifiable area formula yields
+$$|\deg(f)|\,\mathcal{H}^N(Y) = \mathbf{M}(F_\# T) \le \int_Y \mathrm{mult}_F(y)\,d\mathcal{H}^N(y) = \int_X \mathrm{Jac}_x F \, d\mathcal{H}^N(x).$$
+\end{lemma}
+\begin{proof}\leanok Triangle inequality over finite fibers integrated against $\mathcal{H}^N_Y$, combined with Proposition 2.5.\end{proof}
+
+\begin{theorem}[Pointwise entropy-Jacobian bound on $\mathcal{R}_N(X)$ (Proposition 3.4)]
+\label{thm_rcd_pointwise_jacobian_bound}
+\lean{RCDEntropyDegree.RCD.rcd_approximate_jacobian_bound}
+\leanok
+\uses{def_metric_jacobian}
+On the Euclidean approximate tangent space $\mathrm{Tan}(X, x) \cong \R^N$ at $x \in \mathcal{R}_N(X)$, applying the rank-one Busemann Hessian equation and determinant inequality from \texttt{BCG.RankOne} yields $\mathrm{Jac}_x F_s = |\det(d_x F_s)| \le (s / h(\widetilde{Y}))^N$.
+\end{theorem}
+\begin{proof}\leanok Direct instantiation of \texttt{BCG.RankOne.abs\_det\_le\_div\_entropy\_pow\_of\_rankOne\_det\_ineq}.\end{proof}
+
+\begin{theorem}[Theorem 1.1 Part 1: Non-collapsed $\mathsf{RCD}(K, N)$ and Alexandrov entropy-degree inequality]
+\label{thm_rcd_entropy_degree_inequality}
+\lean{RCDEntropyDegree.RCD.rcd_entropy_degree_inequality, RCDEntropyDegree.RCD.rcd_rankOne_entropy_degree_theorem, RCDEntropyDegree.RCD.rcd_homological_index_entropy_inequality, RCDEntropyDegree.RCD.alexandrov_entropy_degree_inequality}
+\leanok
+\uses{lem_mass_jacobian_pushforward, thm_rcd_pointwise_jacobian_bound, thm_wenger_homotopy_surjectivity}
+For any closed orientable non-collapsed $\mathsf{RCD}(K, N)$ space $(X, \mathsf{d}, \mathcal{H}^N)$ (or closed orientable $N$-dimensional Alexandrov space without boundary, Remark 4.3) and continuous map $f : X \to Y$ to a closed oriented negatively curved locally symmetric $N$-manifold $Y$,
+$$\mathrm{ind}_H(f)\,h(\widetilde{Y})^N\,\mathcal{H}^N(Y) \le |\deg(f)|\,h(\widetilde{Y})^N\,\mathcal{H}^N(Y) \le h(\overline{X})^N\,\mathcal{H}^N(X).$$
+\end{theorem}
+\begin{proof}\leanok Combines \cref{lem_mass_jacobian_pushforward} with \cref{thm_rcd_pointwise_jacobian_bound} and passes to the limit $s \searrow h(\overline{X})$ via \texttt{BCG.bcg\_volume\_entropy\_inequality}.\end{proof}
+
+\begin{theorem}[Theorem 1.1 Part 2: Mass-Jacobian sandwich and equality-case rigidity]
+\label{thm_rcd_equality_rigidity}
+\lean{RCDEntropyDegree.RCD.ae_jacobian_eq_one_of_normalized_equality, RCDEntropyDegree.RCD.rcd_entropy_degree_equality_rigidity}
+\leanok
+\uses{thm_rcd_entropy_degree_inequality, thm_homothetic_cover_invariance, thm_sturm_equivariant_natural_map}
+When $\deg(f) \ne 0$, $|\deg(f)| = [\pi_1(Y) : f_* \pi_1(X)] = k \ge 1$, and equality holds in Theorem 1.1, homothetic rescaling by $c = h(\overline{X})/h(\widetilde{Y})$ and lifting to the degree-$k$ cover $p : \widehat{Y} \to Y$ give $|\deg(\hat{f})| = 1$ and $\mathcal{H}_c^N(X) = \mathcal{H}^N(\widehat{Y})$. The $1$-Lipschitz limit map $\hat{F}_\infty : X \to \widehat{Y}$ then saturates the mass-Jacobian sandwich ($\mathrm{Jac}_x \hat{F}_\infty = 1$ a.e.), is surjective, promotes to a global metric isometry $(X, c\,\mathsf{d}_X) \xrightarrow{\sim} \widehat{Y}$, and forces $\mathcal{S}(X) = X \setminus \mathcal{R}_N(X) = \emptyset$.
+\end{theorem}
+\begin{proof}\leanok Combines \texttt{finite\_cover\_entropy\_degree\_reduction}, \texttt{homothetic\_normalization}, the a.e.\ integral sandwich $\mathcal{H}^N(\widehat{Y}) \le \int_X \mathrm{Jac}_x \hat{F}_\infty \le \mathcal{H}_c^N(X) = \mathcal{H}^N(\widehat{Y})$, surjectivity from $\deg(\hat{F}_\infty) \ne 0$, and Lipschitz-volume rigidity.\end{proof}

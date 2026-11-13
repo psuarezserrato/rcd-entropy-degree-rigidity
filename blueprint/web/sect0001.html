@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</title>
+<link rel="next" href="sect0002.html" title="Sturm’s CAT(0) Barycenter and Equivariant Natural Maps" />
+<link rel="prev" href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4" />
+<link rel="up" href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class=" active current">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Regular Values, Lipschitz Degree, and Homotopy Invariance</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000002">1 Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def_mm_volume_entropy">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">1.1</span>
+    <span class="definition_thmtitle">Logarithmic ball-volume rate, exponential growth, and entropy-volume product</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#def_mm_volume_entropy">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.ballVolumeLogRate" class="lean_decl">RCDEntropyDegree.MetricMeasure.ballVolumeLogRate</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth" class="lean_decl">RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.entropyVolumeProduct" class="lean_decl">RCDEntropyDegree.MetricMeasure.entropyVolumeProduct</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   For a metric-measure space \((Z, \mathsf{d}, \mathfrak {m})\) and basepoint \(x_0 \in Z\), the logarithmic ball-volume rate is \(R^{-1} \log \mathfrak {m}(B(x_0, R))\), exponential volume growth \(\mathfrak {m}(B(x_0, R)) \le C e^{h R}\) is captured by <span class="ttfamily">HasExponentialVolumeGrowth</span>, the normalized exponential weights \(w_s(x, z)\) normalize \(e^{-s\, \mathsf{d}(x, z)}\) over finite samples, and the scale-invariant entropy-volume product is \(h(\overline{X})^N \mathcal{H}^N(X)\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_basepoint_bishop_gromov">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.2</span>
+    <span class="theorem_thmtitle">Basepoint independence and Bishop–Gromov hyperbolic growth bound</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#thm_basepoint_bishop_gromov">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000007"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#def_mm_volume_entropy">Definition 1.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.ball_subset_ball_add_dist" class="lean_decl">RCDEntropyDegree.MetricMeasure.ball_subset_ball_add_dist</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.measure_ball_le_measure_ball_add_dist" class="lean_decl">RCDEntropyDegree.MetricMeasure.measure_ball_le_measure_ball_add_dist</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.toReal_measure_ball_le_add_dist" class="lean_decl">RCDEntropyDegree.MetricMeasure.toReal_measure_ball_le_add_dist</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.of_basepoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.of_basepoint</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.ballVolumeLogRate_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.ballVolumeLogRate_le</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.hyperbolicSn_le_mul_exp" class="lean_decl">RCDEntropyDegree.MetricMeasure.hyperbolicSn_le_mul_exp</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.hyperbolicDensity_le_pow_mul_exp" class="lean_decl">RCDEntropyDegree.MetricMeasure.hyperbolicDensity_le_pow_mul_exp</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    By the triangle inclusion \(B(x_0, R) \subseteq B(x_1, R + \mathsf{d}(x_0, x_1))\), exponential volume growth with exponent \(h\) transfers across all basepoints \(x_0, x_1 \in Z\) and bounds \(R^{-1}\log \mathfrak {m}(B(x_0, R)) \le h + R^{-1}\log C\). Moreover, the hyperbolic model density satisfies \((\sinh (\kappa r)/\kappa )^{N-1} \le (2\kappa )^{-(N-1)} e^{(N-1)\kappa r}\), giving the Bishop–Gromov upper bound \(h(\overline{X}) \le (N-1)\kappa \) under \(\mathsf{RCD}(-(N-1)\kappa ^2, N)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000007">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Triangle inequality ball monotonicity and the elementary estimate \(2\sinh (u) \le e^u\) raised to the \((N-1)\)-st power.</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_equivariant_weights">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.3</span>
+    <span class="theorem_thmtitle">Isometric invariance and \(\pi _1\)-equivariance of normalized exponential weights</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#thm_equivariant_weights">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000008"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#def_mm_volume_entropy">Definition 1.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.exponentialWeight_isometry" class="lean_decl">RCDEntropyDegree.MetricMeasure.exponentialWeight_isometry</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_pos" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_pos</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_nonneg" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_nonneg</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sum_normalizedExponentialWeight_eq_one" class="lean_decl">RCDEntropyDegree.MetricMeasure.sum_normalizedExponentialWeight_eq_one</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_equivariant</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Every distance-preserving action \(\gamma \) preserves \(e^{-s\, \mathsf{d}(x, z)}\) and hence yields strictly positive, probability-normalized, \(\pi _1(X)\)-equivariant weights \(w_s(\gamma x, \gamma z_i) = w_s(x, z_i)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000008">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Direct invariance of \(\mathsf{d}(\gamma x, \gamma z) = \mathsf{d}(x, z)\) inside the numerator and denominator sum.</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_homothetic_cover_invariance">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">1.4</span>
+    <span class="theorem_thmtitle">Homothetic invariance, normalization, and finite orientation-cover reduction</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#thm_homothetic_cover_invariance">#</a>
+    
+    <a class="icon proof" href="sect0001.html#a0000000009"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#thm_basepoint_bishop_gromov">Theorem 1.2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.exp_rescaled_dist_eq" class="lean_decl">RCDEntropyDegree.MetricMeasure.exp_rescaled_dist_eq</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.logRate_homothetic_scaling" class="lean_decl">RCDEntropyDegree.MetricMeasure.logRate_homothetic_scaling</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.entropyVolumeProduct_homothetic_invariance" class="lean_decl">RCDEntropyDegree.MetricMeasure.entropyVolumeProduct_homothetic_invariance</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.homothetic_normalization" class="lean_decl">RCDEntropyDegree.MetricMeasure.homothetic_normalization</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.finite_cover_entropy_degree_reduction" class="lean_decl">RCDEntropyDegree.MetricMeasure.finite_cover_entropy_degree_reduction</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Under homothetic metric rescaling \((\mathsf{d}, \mathcal{H}^N) \mapsto (\lambda \mathsf{d}, \lambda ^N \mathcal{H}^N)\) (\(\lambda {\gt} 0\)), volume entropy scales by \(\lambda ^{-1}\) and Hausdorff volume by \(\lambda ^N\), leaving \(h(\overline{X})^N \mathcal{H}^N(X)\) invariant. Passing to the \(k\)-sheeted intermediate cover \(\widehat{Y} \to Y\) associated to \(f_* \pi _1(X) \le \pi _1(Y)\) with \(|\deg (f)| = k |\deg (\hat{f})|\) and normalizing by \(c = h(\overline{X})/h(\widetilde{Y})\) yields \(|\deg (\hat{f})| = 1\), \(c^{-1} h(\overline{X}) = h(\widetilde{Y})\), and \(c^N \mathcal{H}^N(X) = \mathcal{H}^N(\widehat{Y})\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000009">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Cancellation of \(\lambda ^{-N}\lambda ^N = 1\) and positive factor \(k {\gt} 0\) in the covering degree factorization.</p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0002.html" title="Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

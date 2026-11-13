@@ -1,0 +1,1368 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dependency graph</title>
+  <meta name="generator" content="plasTeX" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles/theme-blue.css" />
+  <link rel="stylesheet" href="styles/dep_graph.css" />
+  
+  <script type="text/x-mathjax-config">
+  
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  
+  </script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">  </script>
+
+
+<link rel="stylesheet" href="styles/extra_styles.css" />
+
+</head>
+
+<body>
+<header>
+  <a class="toc" href="index.html">Home</a>
+  <h1 id="doc_title">Dependencies</h1>
+</header>
+<div class="wrapper">
+<div class="content">
+  <div id="Legend">
+    <span id="legend_title" class="title">Legend
+    <div class="btn">
+       <div class="bar"></div>
+       <div class="bar"></div>
+       <div class="bar"></div>
+    </div></span> 
+    <dl class="legend">
+      
+      <dt>Boxes</dt><dd>definitions</dd>
+      
+      <dt>Ellipses</dt><dd>theorems and lemmas</dd>
+      
+      <dt>Blue border</dt><dd>the <em>statement</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Orange border</dt><dd>the <em>statement</em> of this result is not ready to be formalized; the blueprint needs more work</dd>
+      
+      <dt>Blue background</dt><dd>the <em>proof</em> of this result is ready to be formalized; all prerequisites are done</dd>
+      
+      <dt>Green border</dt><dd>the <em>statement</em> of this result is formalized</dd>
+      
+      <dt>Green background</dt><dd>the <em>proof</em> of this result is formalized</dd>
+      
+      <dt>Dark green background</dt><dd>the <em>proof</em> of this result and all its ancestors are formalized</dd>
+      
+      <dt>Dark green border</dt><dd>this is in Mathlib</dd>
+      
+    </dl>
+  </div>
+    <div id="graph">
+<svg width="2210pt" height="877pt"
+ viewBox="0.00 0.00 2210.00 877.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 100%; height: 100%; max-width: 100%; max-height: 88vh; display: block; margin: 0 auto;">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 873)">
+<polygon fill="white" stroke="none" points="-4,4 -4,-873 2206.08,-873 2206.08,4 -4,4"/>
+<!-- thm_cmmp_mass_properties -->
+<g id="node1" class="node">
+<title>thm_cmmp_mass_properties</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="565.52" cy="-613" rx="165.33" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="565.52" y="-605.25" font-family="Times,serif" font-size="20.00">thm_cmmp_mass_properties</text>
+</g>
+<!-- thm_lipschitz_degree_pushforward -->
+<g id="node2" class="node">
+<title>thm_lipschitz_degree_pushforward</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="412.52" cy="-375" rx="200.76" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="412.52" y="-367.25" font-family="Times,serif" font-size="20.00">thm_lipschitz_degree_pushforward</text>
+</g>
+<!-- thm_cmmp_mass_properties&#45;&gt;thm_lipschitz_degree_pushforward -->
+<g id="edge1" class="edge">
+<title>thm_cmmp_mass_properties&#45;&gt;thm_lipschitz_degree_pushforward</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M569.12,-594.33C573.72,-567 578.76,-513.71 557.52,-476 537.39,-440.26 498.55,-414.52 466.13,-398.11"/>
+<polygon fill="black" stroke="black" points="457.4,-393.86 468.36,-394.19 460.8,-395.51 466.39,-398.24 466.39,-398.24 466.39,-398.24 460.8,-395.51 464.42,-402.28 457.4,-393.86"/>
+</g>
+<!-- lem_mass_jacobian_pushforward -->
+<g id="node3" class="node">
+<title>lem_mass_jacobian_pushforward</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="608.52" cy="-256" rx="191.24" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="608.52" y="-248.25" font-family="Times,serif" font-size="20.00">lem_mass_jacobian_pushforward</text>
+</g>
+<!-- thm_lipschitz_degree_pushforward&#45;&gt;lem_mass_jacobian_pushforward -->
+<g id="edge2" class="edge">
+<title>thm_lipschitz_degree_pushforward&#45;&gt;lem_mass_jacobian_pushforward</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M441.86,-356.48C475.78,-336.24 531.75,-302.83 569.36,-280.37"/>
+<polygon fill="black" stroke="black" points="577.93,-275.26 571.65,-284.25 574.68,-277.2 569.34,-280.39 569.34,-280.39 569.34,-280.39 574.68,-277.2 567.04,-276.52 577.93,-275.26"/>
+</g>
+<!-- thm_wenger_homotopy_surjectivity -->
+<g id="node4" class="node">
+<title>thm_wenger_homotopy_surjectivity</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="205.52" cy="-256" rx="205.52" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="205.52" y="-248.25" font-family="Times,serif" font-size="20.00">thm_wenger_homotopy_surjectivity</text>
+</g>
+<!-- thm_lipschitz_degree_pushforward&#45;&gt;thm_wenger_homotopy_surjectivity -->
+<g id="edge3" class="edge">
+<title>thm_lipschitz_degree_pushforward&#45;&gt;thm_wenger_homotopy_surjectivity</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M381.53,-356.48C345.55,-336.15 286.09,-302.54 246.37,-280.09"/>
+<polygon fill="black" stroke="black" points="237.78,-275.24 248.7,-276.24 241.07,-277.1 246.49,-280.16 246.49,-280.16 246.49,-280.16 241.07,-277.1 244.27,-284.07 237.78,-275.24"/>
+</g>
+<!-- thm_rcd_entropy_degree_inequality -->
+<g id="node5" class="node">
+<title>thm_rcd_entropy_degree_inequality</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="800.52" cy="-137" rx="206.05" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="800.52" y="-129.25" font-family="Times,serif" font-size="20.00">thm_rcd_entropy_degree_inequality</text>
+</g>
+<!-- lem_mass_jacobian_pushforward&#45;&gt;thm_rcd_entropy_degree_inequality -->
+<g id="edge4" class="edge">
+<title>lem_mass_jacobian_pushforward&#45;&gt;thm_rcd_entropy_degree_inequality</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M637.26,-237.48C670.49,-217.24 725.32,-183.83 762.16,-161.37"/>
+<polygon fill="black" stroke="black" points="770.54,-156.27 764.34,-165.32 767.31,-158.24 762,-161.47 762,-161.47 762,-161.47 767.31,-158.24 759.66,-157.63 770.54,-156.27"/>
+</g>
+<!-- thm_wenger_homotopy_surjectivity&#45;&gt;thm_rcd_entropy_degree_inequality -->
+<g id="edge5" class="edge">
+<title>thm_wenger_homotopy_surjectivity&#45;&gt;thm_rcd_entropy_degree_inequality</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M288.25,-238.73C398.22,-217.11 592.02,-179 707.12,-156.37"/>
+<polygon fill="black" stroke="black" points="716.82,-154.46 707.87,-160.8 713.1,-155.19 707,-156.39 707,-156.39 707,-156.39 713.1,-155.19 706.13,-151.97 716.82,-154.46"/>
+</g>
+<!-- thm_rcd_equality_rigidity -->
+<g id="node11" class="node">
+<title>thm_rcd_equality_rigidity</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1360.52" cy="-18" rx="148.94" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1360.52" y="-10.25" font-family="Times,serif" font-size="20.00">thm_rcd_equality_rigidity</text>
+</g>
+<!-- thm_rcd_entropy_degree_inequality&#45;&gt;thm_rcd_equality_rigidity -->
+<g id="edge27" class="edge">
+<title>thm_rcd_entropy_degree_inequality&#45;&gt;thm_rcd_equality_rigidity</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M879.27,-119.55C983.97,-97.67 1168.29,-59.16 1275.88,-36.68"/>
+<polygon fill="black" stroke="black" points="1285.5,-34.67 1276.63,-41.12 1281.8,-35.45 1275.71,-36.72 1275.71,-36.72 1275.71,-36.72 1281.8,-35.45 1274.79,-32.31 1285.5,-34.67"/>
+</g>
+<!-- def_mm_volume_entropy -->
+<g id="node6" class="node">
+<title>def_mm_volume_entropy</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="1673.15,-393 1461.89,-393 1461.89,-357 1673.15,-357 1673.15,-393"/>
+<text xml:space="preserve" text-anchor="middle" x="1567.52" y="-367.25" font-family="Times,serif" font-size="20.00">def_mm_volume_entropy</text>
+</g>
+<!-- thm_basepoint_bishop_gromov -->
+<g id="node7" class="node">
+<title>thm_basepoint_bishop_gromov</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1402.52" cy="-256" rx="179.08" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1402.52" y="-248.25" font-family="Times,serif" font-size="20.00">thm_basepoint_bishop_gromov</text>
+</g>
+<!-- def_mm_volume_entropy&#45;&gt;thm_basepoint_bishop_gromov -->
+<g id="edge6" class="edge">
+<title>def_mm_volume_entropy&#45;&gt;thm_basepoint_bishop_gromov</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1542.46,-356.23C1514.07,-336.1 1467.66,-303.19 1436.14,-280.84"/>
+<polygon fill="black" stroke="black" points="1428.27,-275.26 1439.03,-277.37 1431.35,-277.45 1436.42,-281.04 1436.42,-281.04 1436.42,-281.04 1431.35,-277.45 1433.82,-284.71 1428.27,-275.26"/>
+</g>
+<!-- thm_equivariant_weights -->
+<g id="node8" class="node">
+<title>thm_equivariant_weights</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1732.52" cy="-256" rx="144.71" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1732.52" y="-248.25" font-family="Times,serif" font-size="20.00">thm_equivariant_weights</text>
+</g>
+<!-- def_mm_volume_entropy&#45;&gt;thm_equivariant_weights -->
+<g id="edge7" class="edge">
+<title>def_mm_volume_entropy&#45;&gt;thm_equivariant_weights</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1592.58,-356.23C1620.97,-336.1 1667.38,-303.19 1698.9,-280.84"/>
+<polygon fill="black" stroke="black" points="1706.77,-275.26 1701.21,-284.71 1703.68,-277.45 1698.61,-281.04 1698.61,-281.04 1698.61,-281.04 1703.68,-277.45 1696.01,-277.37 1706.77,-275.26"/>
+</g>
+<!-- thm_homothetic_cover_invariance -->
+<g id="node9" class="node">
+<title>thm_homothetic_cover_invariance</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1360.52" cy="-137" rx="198.12" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1360.52" y="-129.25" font-family="Times,serif" font-size="20.00">thm_homothetic_cover_invariance</text>
+</g>
+<!-- thm_basepoint_bishop_gromov&#45;&gt;thm_homothetic_cover_invariance -->
+<g id="edge8" class="edge">
+<title>thm_basepoint_bishop_gromov&#45;&gt;thm_homothetic_cover_invariance</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1396.14,-237.23C1389.35,-218.31 1378.5,-188.1 1370.56,-165.98"/>
+<polygon fill="black" stroke="black" points="1367.23,-156.7 1374.85,-164.59 1368.51,-160.26 1370.61,-166.11 1370.61,-166.11 1370.61,-166.11 1368.51,-160.26 1366.37,-167.63 1367.23,-156.7"/>
+</g>
+<!-- thm_sturm_equivariant_natural_map -->
+<g id="node10" class="node">
+<title>thm_sturm_equivariant_natural_map</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1774.52" cy="-137" rx="210.28" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1774.52" y="-129.25" font-family="Times,serif" font-size="20.00">thm_sturm_equivariant_natural_map</text>
+</g>
+<!-- thm_equivariant_weights&#45;&gt;thm_sturm_equivariant_natural_map -->
+<g id="edge9" class="edge">
+<title>thm_equivariant_weights&#45;&gt;thm_sturm_equivariant_natural_map</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1738.9,-237.23C1745.69,-218.31 1756.53,-188.1 1764.47,-165.98"/>
+<polygon fill="black" stroke="black" points="1767.81,-156.7 1768.66,-167.63 1766.53,-160.26 1764.43,-166.11 1764.43,-166.11 1764.43,-166.11 1766.53,-160.26 1760.19,-164.59 1767.81,-156.7"/>
+</g>
+<!-- thm_homothetic_cover_invariance&#45;&gt;thm_rcd_equality_rigidity -->
+<g id="edge10" class="edge">
+<title>thm_homothetic_cover_invariance&#45;&gt;thm_rcd_equality_rigidity</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1360.52,-118.23C1360.52,-99.48 1360.52,-69.65 1360.52,-47.59"/>
+<polygon fill="black" stroke="black" points="1360.52,-37.77 1365.02,-47.77 1360.52,-41.55 1360.52,-47.77 1360.52,-47.77 1360.52,-47.77 1360.52,-41.55 1356.02,-47.77 1360.52,-37.77"/>
+</g>
+<!-- thm_sturm_equivariant_natural_map&#45;&gt;thm_rcd_equality_rigidity -->
+<g id="edge11" class="edge">
+<title>thm_sturm_equivariant_natural_map&#45;&gt;thm_rcd_equality_rigidity</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1714.32,-118.99C1638.45,-97.55 1508.37,-60.78 1428.85,-38.31"/>
+<polygon fill="black" stroke="black" points="1419.62,-35.7 1430.47,-34.09 1423.26,-36.73 1429.25,-38.42 1429.25,-38.42 1429.25,-38.42 1423.26,-36.73 1428.02,-42.75 1419.62,-35.7"/>
+</g>
+<!-- def_ncrcd_alexandrov -->
+<g id="node12" class="node">
+<title>def_ncrcd_alexandrov</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="757.9,-869 575.14,-869 575.14,-833 757.9,-833 757.9,-869"/>
+<text xml:space="preserve" text-anchor="middle" x="666.52" y="-843.25" font-family="Times,serif" font-size="20.00">def_ncrcd_alexandrov</text>
+</g>
+<!-- def_metric_jacobian -->
+<g id="node13" class="node">
+<title>def_metric_jacobian</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="912.77,-393 744.26,-393 744.26,-357 912.77,-357 912.77,-393"/>
+<text xml:space="preserve" text-anchor="middle" x="828.52" y="-367.25" font-family="Times,serif" font-size="20.00">def_metric_jacobian</text>
+</g>
+<!-- def_ncrcd_alexandrov&#45;&gt;def_metric_jacobian -->
+<g id="edge12" class="edge">
+<title>def_ncrcd_alexandrov&#45;&gt;def_metric_jacobian</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M716.71,-832.19C752.57,-816.55 798.26,-789.97 820.52,-750 884.01,-635.99 852.76,-470.54 836.38,-404.64"/>
+<polygon fill="black" stroke="black" points="833.92,-395.06 840.77,-403.63 834.86,-398.72 836.41,-404.75 836.41,-404.75 836.41,-404.75 834.86,-398.72 832.05,-405.87 833.92,-395.06"/>
+</g>
+<!-- thm_ncrcd_singular_strata -->
+<g id="node14" class="node">
+<title>thm_ncrcd_singular_strata</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="666.52" cy="-732" rx="152.11" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="666.52" y="-724.25" font-family="Times,serif" font-size="20.00">thm_ncrcd_singular_strata</text>
+</g>
+<!-- def_ncrcd_alexandrov&#45;&gt;thm_ncrcd_singular_strata -->
+<g id="edge13" class="edge">
+<title>def_ncrcd_alexandrov&#45;&gt;thm_ncrcd_singular_strata</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M666.52,-832.23C666.52,-813.48 666.52,-783.65 666.52,-761.59"/>
+<polygon fill="black" stroke="black" points="666.52,-751.77 671.02,-761.77 666.52,-755.55 666.52,-761.77 666.52,-761.77 666.52,-761.77 666.52,-755.55 662.02,-761.77 666.52,-751.77"/>
+</g>
+<!-- def_cmmp_currents -->
+<g id="node15" class="node">
+<title>def_cmmp_currents</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="508.9,-750 344.14,-750 344.14,-714 508.9,-714 508.9,-750"/>
+<text xml:space="preserve" text-anchor="middle" x="426.52" y="-724.25" font-family="Times,serif" font-size="20.00">def_cmmp_currents</text>
+</g>
+<!-- def_ncrcd_alexandrov&#45;&gt;def_cmmp_currents -->
+<g id="edge14" class="edge">
+<title>def_ncrcd_alexandrov&#45;&gt;def_cmmp_currents</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M629.81,-832.1C587.81,-811.63 518.96,-778.07 473.19,-755.75"/>
+<polygon fill="black" stroke="black" points="464.32,-751.43 475.28,-751.77 467.72,-753.09 473.31,-755.81 473.31,-755.81 473.31,-755.81 467.72,-753.09 471.34,-759.86 464.32,-751.43"/>
+</g>
+<!-- def_metric_jacobian&#45;&gt;lem_mass_jacobian_pushforward -->
+<g id="edge15" class="edge">
+<title>def_metric_jacobian&#45;&gt;lem_mass_jacobian_pushforward</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M795.1,-356.23C756.6,-335.75 693.24,-302.06 651.2,-279.7"/>
+<polygon fill="black" stroke="black" points="642.6,-275.13 653.54,-275.85 645.94,-276.9 651.43,-279.82 651.43,-279.82 651.43,-279.82 645.94,-276.9 649.32,-283.79 642.6,-275.13"/>
+</g>
+<!-- thm_rcd_pointwise_jacobian_bound -->
+<g id="node16" class="node">
+<title>thm_rcd_pointwise_jacobian_bound</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="1011.52" cy="-256" rx="206.05" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="1011.52" y="-248.25" font-family="Times,serif" font-size="20.00">thm_rcd_pointwise_jacobian_bound</text>
+</g>
+<!-- def_metric_jacobian&#45;&gt;thm_rcd_pointwise_jacobian_bound -->
+<g id="edge16" class="edge">
+<title>def_metric_jacobian&#45;&gt;thm_rcd_pointwise_jacobian_bound</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M856.31,-356.23C887.93,-336.01 939.71,-302.91 974.68,-280.55"/>
+<polygon fill="black" stroke="black" points="983.04,-275.21 977.03,-284.39 979.85,-277.25 974.61,-280.6 974.61,-280.6 974.61,-280.6 979.85,-277.25 972.19,-276.81 983.04,-275.21"/>
+</g>
+<!-- thm_ncrcd_singular_strata&#45;&gt;thm_cmmp_mass_properties -->
+<g id="edge17" class="edge">
+<title>thm_ncrcd_singular_strata&#45;&gt;thm_cmmp_mass_properties</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M651.18,-713.23C634.32,-693.7 607.09,-662.16 587.86,-639.88"/>
+<polygon fill="black" stroke="black" points="581.47,-632.48 591.41,-637.11 583.94,-635.34 588,-640.05 588,-640.05 588,-640.05 583.94,-635.34 584.6,-642.99 581.47,-632.48"/>
+</g>
+<!-- lem_regular_values_full_measure -->
+<g id="node17" class="node">
+<title>lem_regular_values_full_measure</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="361.52" cy="-494" rx="193.89" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="361.52" y="-486.25" font-family="Times,serif" font-size="20.00">lem_regular_values_full_measure</text>
+</g>
+<!-- thm_ncrcd_singular_strata&#45;&gt;lem_regular_values_full_measure -->
+<g id="edge18" class="edge">
+<title>thm_ncrcd_singular_strata&#45;&gt;lem_regular_values_full_measure</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M686.68,-713.43C715.45,-686.24 761.73,-633.12 732.52,-595 701.8,-554.91 577.64,-527.26 481.31,-511.36"/>
+<polygon fill="black" stroke="black" points="471.5,-509.77 482.1,-506.93 475.24,-510.38 481.37,-511.37 481.37,-511.37 481.37,-511.37 475.24,-510.38 480.65,-515.81 471.5,-509.77"/>
+</g>
+<!-- def_cmmp_currents&#45;&gt;thm_cmmp_mass_properties -->
+<g id="edge19" class="edge">
+<title>def_cmmp_currents&#45;&gt;thm_cmmp_mass_properties</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M447.63,-713.23C471.24,-693.36 509.64,-661.04 536.16,-638.71"/>
+<polygon fill="black" stroke="black" points="543.73,-632.34 538.98,-642.22 540.84,-634.77 536.08,-638.78 536.08,-638.78 536.08,-638.78 540.84,-634.77 533.18,-635.34 543.73,-632.34"/>
+</g>
+<!-- def_regular_values_degree -->
+<g id="node18" class="node">
+<title>def_regular_values_degree</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="394.65,-631 174.39,-631 174.39,-595 394.65,-595 394.65,-631"/>
+<text xml:space="preserve" text-anchor="middle" x="284.52" y="-605.25" font-family="Times,serif" font-size="20.00">def_regular_values_degree</text>
+</g>
+<!-- def_cmmp_currents&#45;&gt;def_regular_values_degree -->
+<g id="edge20" class="edge">
+<title>def_cmmp_currents&#45;&gt;def_regular_values_degree</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M404.95,-713.23C380.73,-693.27 341.27,-660.76 314.16,-638.42"/>
+<polygon fill="black" stroke="black" points="306.76,-632.33 317.34,-635.21 309.68,-634.73 314.48,-638.69 314.48,-638.69 314.48,-638.69 309.68,-634.73 311.62,-642.16 306.76,-632.33"/>
+</g>
+<!-- thm_rcd_pointwise_jacobian_bound&#45;&gt;thm_rcd_entropy_degree_inequality -->
+<g id="edge21" class="edge">
+<title>thm_rcd_pointwise_jacobian_bound&#45;&gt;thm_rcd_entropy_degree_inequality</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M979.93,-237.48C943.18,-217.11 882.39,-183.4 841.9,-160.95"/>
+<polygon fill="black" stroke="black" points="833.39,-156.23 844.32,-157.14 836.7,-158.06 842.13,-161.08 842.13,-161.08 842.13,-161.08 836.7,-158.06 839.95,-165.01 833.39,-156.23"/>
+</g>
+<!-- lem_regular_values_full_measure&#45;&gt;thm_lipschitz_degree_pushforward -->
+<g id="edge22" class="edge">
+<title>lem_regular_values_full_measure&#45;&gt;thm_lipschitz_degree_pushforward</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M369.26,-475.23C377.55,-456.22 390.8,-425.82 400.45,-403.68"/>
+<polygon fill="black" stroke="black" points="404.38,-394.67 404.51,-405.64 402.87,-398.14 400.38,-403.84 400.38,-403.84 400.38,-403.84 402.87,-398.14 396.26,-402.04 404.38,-394.67"/>
+</g>
+<!-- def_regular_values_degree&#45;&gt;lem_regular_values_full_measure -->
+<g id="edge23" class="edge">
+<title>def_regular_values_degree&#45;&gt;lem_regular_values_full_measure</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M296.21,-594.23C308.89,-574.96 329.27,-543.99 343.9,-521.78"/>
+<polygon fill="black" stroke="black" points="349.3,-513.57 347.56,-524.4 347.22,-516.73 343.8,-521.92 343.8,-521.92 343.8,-521.92 347.22,-516.73 340.04,-519.45 349.3,-513.57"/>
+</g>
+<!-- def_sturm_functional -->
+<g id="node19" class="node">
+<title>def_sturm_functional</title>
+<polygon fill="#b0eca3" stroke="green" stroke-width="1.8" points="2120.15,-512 1944.89,-512 1944.89,-476 2120.15,-476 2120.15,-512"/>
+<text xml:space="preserve" text-anchor="middle" x="2032.52" y="-486.25" font-family="Times,serif" font-size="20.00">def_sturm_functional</text>
+</g>
+<!-- lem_sturm_growth_basepoint -->
+<g id="node20" class="node">
+<title>lem_sturm_growth_basepoint</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2032.52" cy="-375" rx="169.56" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2032.52" y="-367.25" font-family="Times,serif" font-size="20.00">lem_sturm_growth_basepoint</text>
+</g>
+<!-- def_sturm_functional&#45;&gt;lem_sturm_growth_basepoint -->
+<g id="edge24" class="edge">
+<title>def_sturm_functional&#45;&gt;lem_sturm_growth_basepoint</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2032.52,-475.23C2032.52,-456.48 2032.52,-426.65 2032.52,-404.59"/>
+<polygon fill="black" stroke="black" points="2032.52,-394.77 2037.02,-404.77 2032.52,-398.55 2032.52,-404.77 2032.52,-404.77 2032.52,-404.77 2032.52,-398.55 2028.02,-404.77 2032.52,-394.77"/>
+</g>
+<!-- thm_sturm_cat0_variance -->
+<g id="node21" class="node">
+<title>thm_sturm_cat0_variance</title>
+<ellipse fill="#1cac78" stroke="green" stroke-width="1.8" cx="2032.52" cy="-256" rx="148.94" ry="18"/>
+<text xml:space="preserve" text-anchor="middle" x="2032.52" y="-248.25" font-family="Times,serif" font-size="20.00">thm_sturm_cat0_variance</text>
+</g>
+<!-- lem_sturm_growth_basepoint&#45;&gt;thm_sturm_cat0_variance -->
+<g id="edge25" class="edge">
+<title>lem_sturm_growth_basepoint&#45;&gt;thm_sturm_cat0_variance</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2032.52,-356.23C2032.52,-337.48 2032.52,-307.65 2032.52,-285.59"/>
+<polygon fill="black" stroke="black" points="2032.52,-275.77 2037.02,-285.77 2032.52,-279.55 2032.52,-285.77 2032.52,-285.77 2032.52,-285.77 2032.52,-279.55 2028.02,-285.77 2032.52,-275.77"/>
+</g>
+<!-- thm_sturm_cat0_variance&#45;&gt;thm_sturm_equivariant_natural_map -->
+<g id="edge26" class="edge">
+<title>thm_sturm_cat0_variance&#45;&gt;thm_sturm_equivariant_natural_map</title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M1994.45,-237.74C1949.04,-217.14 1873.05,-182.68 1823.35,-160.14"/>
+<polygon fill="black" stroke="black" points="1814.27,-156.03 1825.24,-156.06 1817.72,-157.59 1823.38,-160.16 1823.38,-160.16 1823.38,-160.16 1817.72,-157.59 1821.52,-164.26 1814.27,-156.03"/>
+</g>
+</g>
+</svg>
+</div>
+<div id="statements">
+
+    
+    <div class="dep-modal-container" id="def_cmmp_currents_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_cmmp_currents" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">3.3</span><span class="definition_thmtitle">Metric currents, fundamental manifold class, and CMMP orientation current</span></div>
+    <div class="thm_thmcontent"><p>    <span class="ttfamily">MetricCurrentOps</span> packages Ambrosio–Kirchheim / Lang metric currents with boundary \(\partial \), mass measure \(\| T\| \), total mass \(\mathbf{M}(T)\), and Lipschitz pushforward \(f_\# \). <span class="ttfamily">FundamentalManifoldCurrent</span> captures the top-dimensional fundamental class \([\! [Y ]\! ]\in \mathbf{I}_N(Y)\) on a closed oriented Riemannian \(N\)-manifold, while <span class="ttfamily">CMMPOrientationCurrent</span> packages the Cavallucci–Marti–Mondino–Perales orientation current \(T \in \mathbf{I}_N(X)\) (\(\partial T = 0\), \(\| T\|  = \mathcal{H}^N\)). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#def_cmmp_currents">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.MetricCurrentOps" class="lean_decl">RCDEntropyDegree.RCD.MetricCurrentOps</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_metric_jacobian_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_metric_jacobian" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">5.1</span><span class="definition_thmtitle">Metric Jacobian on Euclidean approximate tangent spaces (Lemma 3.2)</span></div>
+    <div class="thm_thmcontent"><p>    At \(\mathcal{H}^N\)-almost every regular point \(x \in \mathcal{R}_N(X)\) where \(\mathrm{Tan}(X, x) \cong E\) (\(\dim _\mathbb {R}E = N\)), the approximate linear differential \(d_x F : E \to _l[\mathbb {R}] E\) defines the non-negative metric Jacobian \(\mathrm{Jac}_x F := |\det (d_x F)|\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#def_metric_jacobian">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.metricJacobian" class="lean_decl">RCDEntropyDegree.RCD.metricJacobian</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.metricJacobian_nonneg" class="lean_decl">RCDEntropyDegree.RCD.metricJacobian_nonneg</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_mm_volume_entropy_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_mm_volume_entropy" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">1.1</span><span class="definition_thmtitle">Logarithmic ball-volume rate, exponential growth, and entropy-volume product</span></div>
+    <div class="thm_thmcontent"><p>   For a metric-measure space \((Z, \mathsf{d}, \mathfrak {m})\) and basepoint \(x_0 \in Z\), the logarithmic ball-volume rate is \(R^{-1} \log \mathfrak {m}(B(x_0, R))\), exponential volume growth \(\mathfrak {m}(B(x_0, R)) \le C e^{h R}\) is captured by <span class="ttfamily">HasExponentialVolumeGrowth</span>, the normalized exponential weights \(w_s(x, z)\) normalize \(e^{-s\, \mathsf{d}(x, z)}\) over finite samples, and the scale-invariant entropy-volume product is \(h(\overline{X})^N \mathcal{H}^N(X)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#def_mm_volume_entropy">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.ballVolumeLogRate" class="lean_decl">RCDEntropyDegree.MetricMeasure.ballVolumeLogRate</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth" class="lean_decl">RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.entropyVolumeProduct" class="lean_decl">RCDEntropyDegree.MetricMeasure.entropyVolumeProduct</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_ncrcd_alexandrov_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_ncrcd_alexandrov" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">3.1</span><span class="definition_thmtitle">Non-collapsed \(\mathsf{RCD}(K, N)\) stratification and Alexandrov specialization</span></div>
+    <div class="thm_thmcontent"><p>   A non-collapsed \(\mathsf{RCD}(K, N)\) space \((X, \mathsf{d}, \mathcal{H}^N)\) carries the regular set \(\mathcal{R}_N(X)\) (\(\theta _N(x) = 1\)), the open topological manifold locus \(\mathcal{M}(X) \supseteq \mathcal{R}_N(X)\), the closed singular set \(\mathcal{S}(X) = X \setminus \mathcal{M}(X)\), and singular strata \(\mathcal{S}^k(X)\). Closed Alexandrov \(N\)-spaces of curvature \(\ge \kappa \) without boundary embed into closed non-collapsed \(\mathsf{RCD}((N-1)\kappa , N)\) spaces via <span class="ttfamily">AlexandrovSpaceWithoutBoundary</span>. </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#def_ncrcd_alexandrov">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary" class="lean_decl">RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_regular_values_degree_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_regular_values_degree" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">4.1</span><span class="definition_thmtitle">Singular value image, regular value locus, and Lipschitz pushforward degree</span></div>
+    <div class="thm_thmcontent"><p>    For a map \(f : X \to Y\), \(\Sigma _f := f(\mathcal{S}(X))\) is the singular value image, \(V_f := Y \setminus \Sigma _f\) is the regular value locus, and \(U_f := f^{-1}(V_f)\) is the regular domain locus. <span class="ttfamily">LipschitzDegreePushforward</span> encodes \(f_\#  T = \deg (f)[\! [Y ]\! ]\) via Federer constancy on \(Y\) together with the local degree integral formula on \(U_f\). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#def_regular_values_degree">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.singularValueImage" class="lean_decl">RCDEntropyDegree.RCD.singularValueImage</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.regularValueSet" class="lean_decl">RCDEntropyDegree.RCD.regularValueSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.regularDomainSet" class="lean_decl">RCDEntropyDegree.RCD.regularDomainSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="def_sturm_functional_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="def_sturm_functional" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">2.1</span><span class="definition_thmtitle">Sturm’s renormalized \(d^2\)-barycenter functional and geodesic homotopy</span></div>
+    <div class="thm_thmcontent"><p>   For a probability weight \(w\) supported at points \(y_i\) in a metric space \((Y, \mathsf{d}_Y)\) and reference basepoint \(o \in Y\), Sturm’s renormalized \(d^2\)-barycenter functional is \(\mathcal{S}_{w, y, o}(z) = \sum _i w_i (\mathsf{d}_Y(y_i, z)^2 - \mathsf{d}_Y(o, y_i)^2)\). Together with the \(\mathrm{CAT}(0)\) semi-parallelogram midpoint predicate <span class="ttfamily">IsCATZeroMidpoint</span>, this supports the lifted geodesic homotopy \(\overline{H}_s(x, t)\) and its quotient descent \(H_s : X \times [0, 1] \to Y\). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#def_sturm_functional">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmSummand" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmSummand</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_mass_jacobian_pushforward_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_mass_jacobian_pushforward" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">5.2</span><span class="lemma_thmtitle">Pushforward mass-Jacobian inequality (Lemma 3.3)</span></div>
+    <div class="thm_thmcontent"><p>    Because each regular-fiber orientation sign satisfies \(|\sum _{x \in F^{-1}(y) \cap \mathcal{R}_N(X)} \mathrm{sign}(\det d_x F)| \le \#  F^{-1}(y)\), the rectifiable area formula yields </p>
+<div class="displaymath" id="a0000000019">
+  \[ |\deg (f)|\, \mathcal{H}^N(Y) = \mathbf{M}(F_\#  T) \le \int _Y \mathrm{mult}_F(y)\, d\mathcal{H}^N(y) = \int _X \mathrm{Jac}_x F \,  d\mathcal{H}^N(x). \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0005.html#lem_mass_jacobian_pushforward">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.abs_sum_orientationSign_le_card" class="lean_decl">RCDEntropyDegree.RCD.abs_sum_orientationSign_le_card</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.pushforward_totalMass_le_integral_jacobian" class="lean_decl">RCDEntropyDegree.RCD.pushforward_totalMass_le_integral_jacobian</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.degree_mul_volume_le_integral_jacobian" class="lean_decl">RCDEntropyDegree.RCD.degree_mul_volume_le_integral_jacobian</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_regular_values_full_measure_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_regular_values_full_measure" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">4.2</span><span class="lemma_thmtitle">Openness and full measure of regular values \(V_f = Y \setminus f(\mathcal{S}(X))\) (Lemma 2.3)</span></div>
+    <div class="thm_thmcontent"><p>    For any continuous map \(f : X \to Y\) (\(X\) compact, \(Y\) Hausdorff), \(U_f \subseteq \mathcal{M}(X)\), \(\Sigma _f\) is compact and closed, and \(V_f, U_f\) are open. When \(f\) is Lipschitz, \(\mathcal{H}^{N-1}(\Sigma _f) = 0\) and \(\mathcal{H}^N(V_f) = \mathcal{H}^N(Y)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#lem_regular_values_full_measure">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.regularDomainSet_subset_manifoldSet" class="lean_decl">RCDEntropyDegree.RCD.regularDomainSet_subset_manifoldSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isCompact_singularValueImage" class="lean_decl">RCDEntropyDegree.RCD.isCompact_singularValueImage</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isClosed_singularValueImage" class="lean_decl">RCDEntropyDegree.RCD.isClosed_singularValueImage</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isOpen_regularValueSet" class="lean_decl">RCDEntropyDegree.RCD.isOpen_regularValueSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isOpen_regularDomainSet" class="lean_decl">RCDEntropyDegree.RCD.isOpen_regularDomainSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.hausdorffMeasureCodimOne_singularValueImage_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.hausdorffMeasureCodimOne_singularValueImage_eq_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.volumeMeasure_regularValueSet_eq_univ" class="lean_decl">RCDEntropyDegree.RCD.volumeMeasure_regularValueSet_eq_univ</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="lem_sturm_growth_basepoint_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="lem_sturm_growth_basepoint" style="display: none">
+    <div class="thm_thmheading">
+      <span class="lemma_thmcaption">
+      Lemma
+      </span>
+      <span class="lemma_thmlabel">2.2</span><span class="lemma_thmtitle">First-moment linear growth bound and basepoint independence</span></div>
+    <div class="thm_thmcontent"><p>    Sturm’s summand satisfies \(|\mathsf{d}(y, z)^2 - \mathsf{d}(o, y)^2| \le \mathsf{d}(o, z)(\mathsf{d}(o, z) + 2\, \mathsf{d}(o, y))\), requiring only finite first moments, and shifting \(o_1 \mapsto o_2\) adds a constant independent of \(z\). Consequently, \(\mathcal{S}_{w, y, o}\) is continuous and shares exact global minimizers with <span class="ttfamily">metricEnergy</span>. </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#lem_sturm_growth_basepoint">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmSummand_basepoint_self" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmSummand_basepoint_self</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmSummand_sub_sturmSummand" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmSummand_sub_sturmSummand</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.abs_sturmSummand_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.abs_sturmSummand_le</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_basepoint_self" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_basepoint_self</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_eq_two_mul_metricEnergy_sub" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_eq_two_mul_metricEnergy_sub</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_sub_basepoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_sub_basepoint</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_basepoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_basepoint</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_metricEnergy" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_metricEnergy</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.continuous_sturmFunctional" class="lean_decl">RCDEntropyDegree.MetricMeasure.continuous_sturmFunctional</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.abs_sturmFunctional_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.abs_sturmFunctional_le</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_basepoint_bishop_gromov_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_basepoint_bishop_gromov" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">1.2</span><span class="theorem_thmtitle">Basepoint independence and Bishop–Gromov hyperbolic growth bound</span></div>
+    <div class="thm_thmcontent"><p>    By the triangle inclusion \(B(x_0, R) \subseteq B(x_1, R + \mathsf{d}(x_0, x_1))\), exponential volume growth with exponent \(h\) transfers across all basepoints \(x_0, x_1 \in Z\) and bounds \(R^{-1}\log \mathfrak {m}(B(x_0, R)) \le h + R^{-1}\log C\). Moreover, the hyperbolic model density satisfies \((\sinh (\kappa r)/\kappa )^{N-1} \le (2\kappa )^{-(N-1)} e^{(N-1)\kappa r}\), giving the Bishop–Gromov upper bound \(h(\overline{X}) \le (N-1)\kappa \) under \(\mathsf{RCD}(-(N-1)\kappa ^2, N)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm_basepoint_bishop_gromov">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.ball_subset_ball_add_dist" class="lean_decl">RCDEntropyDegree.MetricMeasure.ball_subset_ball_add_dist</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.measure_ball_le_measure_ball_add_dist" class="lean_decl">RCDEntropyDegree.MetricMeasure.measure_ball_le_measure_ball_add_dist</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.toReal_measure_ball_le_add_dist" class="lean_decl">RCDEntropyDegree.MetricMeasure.toReal_measure_ball_le_add_dist</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.of_basepoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.of_basepoint</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.ballVolumeLogRate_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.HasExponentialVolumeGrowth.ballVolumeLogRate_le</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.hyperbolicSn_le_mul_exp" class="lean_decl">RCDEntropyDegree.MetricMeasure.hyperbolicSn_le_mul_exp</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.hyperbolicDensity_le_pow_mul_exp" class="lean_decl">RCDEntropyDegree.MetricMeasure.hyperbolicDensity_le_pow_mul_exp</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_cmmp_mass_properties_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_cmmp_mass_properties" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">3.4</span><span class="theorem_thmtitle">Mass and singular-nullity properties of the CMMP orientation current (Theorem 2.2)</span></div>
+    <div class="thm_thmcontent"><p>    For the fundamental current \([\! [Y ]\! ]\), \(\mathbf{M}(d[\! [Y ]\! ]) = |d|\, \mathcal{H}^N(Y)\) and \(\mathcal{H}^N(Y) {\gt} 0\), making \(d \mapsto d[\! [Y ]\! ]\) injective on \(\mathbb {Z}\). On \(X\), the CMMP current \(T\) satisfies \(\mathbf{M}(T) = \mathcal{H}^N(X) {\gt} 0\) and \(\| T\| (\mathcal{S}(X)) = \| T\| (X \setminus \mathcal{R}_N(X)) = 0\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm_cmmp_mass_properties">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume_pos" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.manifoldVolume_pos</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_zsmul_eq" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_zsmul_eq</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_fundamentalClass" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.totalMass_fundamentalClass</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.FundamentalManifoldCurrent.zsmul_fundamentalClass_inj" class="lean_decl">RCDEntropyDegree.RCD.FundamentalManifoldCurrent.zsmul_fundamentalClass_inj</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent_pos" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.totalMass_orientationCurrent_pos</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_compl_regularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_compl_regularSet_eq_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.CMMPOrientationCurrent.massMeasure_singularSet_eq_zero</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_equivariant_weights_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_equivariant_weights" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">1.3</span><span class="theorem_thmtitle">Isometric invariance and \(\pi _1\)-equivariance of normalized exponential weights</span></div>
+    <div class="thm_thmcontent"><p>    Every distance-preserving action \(\gamma \) preserves \(e^{-s\, \mathsf{d}(x, z)}\) and hence yields strictly positive, probability-normalized, \(\pi _1(X)\)-equivariant weights \(w_s(\gamma x, \gamma z_i) = w_s(x, z_i)\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm_equivariant_weights">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.exponentialWeight_isometry" class="lean_decl">RCDEntropyDegree.MetricMeasure.exponentialWeight_isometry</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_pos" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_pos</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_nonneg" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_nonneg</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sum_normalizedExponentialWeight_eq_one" class="lean_decl">RCDEntropyDegree.MetricMeasure.sum_normalizedExponentialWeight_eq_one</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.normalizedExponentialWeight_equivariant</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_homothetic_cover_invariance_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_homothetic_cover_invariance" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">1.4</span><span class="theorem_thmtitle">Homothetic invariance, normalization, and finite orientation-cover reduction</span></div>
+    <div class="thm_thmcontent"><p>    Under homothetic metric rescaling \((\mathsf{d}, \mathcal{H}^N) \mapsto (\lambda \mathsf{d}, \lambda ^N \mathcal{H}^N)\) (\(\lambda {\gt} 0\)), volume entropy scales by \(\lambda ^{-1}\) and Hausdorff volume by \(\lambda ^N\), leaving \(h(\overline{X})^N \mathcal{H}^N(X)\) invariant. Passing to the \(k\)-sheeted intermediate cover \(\widehat{Y} \to Y\) associated to \(f_* \pi _1(X) \le \pi _1(Y)\) with \(|\deg (f)| = k |\deg (\hat{f})|\) and normalizing by \(c = h(\overline{X})/h(\widetilde{Y})\) yields \(|\deg (\hat{f})| = 1\), \(c^{-1} h(\overline{X}) = h(\widetilde{Y})\), and \(c^N \mathcal{H}^N(X) = \mathcal{H}^N(\widehat{Y})\). </p>
+</div>
+
+    <a class="latex_link" href="sect0001.html#thm_homothetic_cover_invariance">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.exp_rescaled_dist_eq" class="lean_decl">RCDEntropyDegree.MetricMeasure.exp_rescaled_dist_eq</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.logRate_homothetic_scaling" class="lean_decl">RCDEntropyDegree.MetricMeasure.logRate_homothetic_scaling</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.entropyVolumeProduct_homothetic_invariance" class="lean_decl">RCDEntropyDegree.MetricMeasure.entropyVolumeProduct_homothetic_invariance</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.homothetic_normalization" class="lean_decl">RCDEntropyDegree.MetricMeasure.homothetic_normalization</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.finite_cover_entropy_degree_reduction" class="lean_decl">RCDEntropyDegree.MetricMeasure.finite_cover_entropy_degree_reduction</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_lipschitz_degree_pushforward_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_lipschitz_degree_pushforward" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">4.3</span><span class="theorem_thmtitle">Current pushforward degree identity and Lipschitz volume bound (Proposition 2.5)</span></div>
+    <div class="thm_thmcontent"><p>    A Lipschitz map \(f : X \to Y\) satisfies \(\mathbf{M}(f_\#  T) = |\deg (f)|\, \mathcal{H}^N(Y)\), \(\deg (f) = \mathcal{H}^N(Y)^{-1} \int _Y \deg (f; U_X, y)\, d\mathcal{H}^N(y)\), and \(|\deg (f)|\, \mathcal{H}^N(Y) \le \mathrm{Lip}(f)^N \mathcal{H}^N(X)\) (in particular \(\mathcal{H}^N(Y) \le \mathcal{H}^N(X)\) when \(f\) is \(1\)-Lipschitz and \(\deg (f) \ne 0\)). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#thm_lipschitz_degree_pushforward">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.totalMass_pushforward_eq_abs_degree_mul_volume" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.totalMass_pushforward_eq_abs_degree_mul_volume</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.degree_eq_inv_volume_mul_integral" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.degree_eq_inv_volume_mul_integral</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.abs_degree_mul_volume_le_lip_pow_mul_volume" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.abs_degree_mul_volume_le_lip_pow_mul_volume</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.manifoldVolume_le_totalVolume_of_one_lipschitz" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.manifoldVolume_le_totalVolume_of_one_lipschitz</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_ncrcd_singular_strata_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_ncrcd_singular_strata" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">3.2</span><span class="theorem_thmtitle">Codimension-two singular stratification and Bishop–Gromov density gap (Lemma 2.1 &amp; Remark 4.3)</span></div>
+    <div class="thm_thmcontent"><p>    On any closed non-collapsed \(\mathsf{RCD}(K, N)\) space (and in particular on any closed Alexandrov \(N\)-space without boundary), \(\mathcal{R}_N(X)\) and \(\mathcal{M}(X)\) have full \(\mathcal{H}^N\)-measure, \(\mathcal{S}(X) \subseteq X \setminus \mathcal{R}_N(X) \subseteq \mathcal{S}^{N-2}(X)\) is closed with \(\mathcal{H}^{N-1}(\mathcal{S}(X)) = \mathcal{H}^{N-1}(X \setminus \mathcal{R}_N(X)) = 0\), \(\mathcal{H}^N(X) {\gt} 0\), and every point \(x \notin \mathcal{R}_N(X)\) satisfies the strict Bishop–Gromov density gap \(\theta _N(x) {\lt} 1\). </p>
+</div>
+
+    <a class="latex_link" href="sect0003.html#thm_ncrcd_singular_strata">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.isClosed_singularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.isClosed_singularSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_compl_regularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_compl_regularSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_singularStratum_sub_one" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.singularSet_subset_singularStratum_sub_one</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_singularSet_eq_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_regularSet_eq_univ" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_regularSet_eq_univ</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_manifoldSet_eq_univ" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.hausdorffMeasure_manifoldSet_eq_univ</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.NonCollapsedRCDStructure.density_lt_one_of_not_mem_regularSet" class="lean_decl">RCDEntropyDegree.RCD.NonCollapsedRCDStructure.density_lt_one_of_not_mem_regularSet</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume_pos" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.totalVolume_pos</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.singularSet_subset_singularStratum_sub_two" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.singularSet_subset_singularStratum_sub_two</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_compl_regularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_compl_regularSet_eq_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.ClosedNonCollapsedRCD.hausdorffMeasureCodimOne_singularSet_eq_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary.hausdorffMeasureCodimOne_singularSet_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.AlexandrovSpaceWithoutBoundary.hausdorffMeasureCodimOne_singularSet_eq_zero</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_rcd_entropy_degree_inequality_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_rcd_entropy_degree_inequality" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">5.4</span><span class="theorem_thmtitle">Theorem 1.1 Part 1: Non-collapsed \(\mathsf{RCD}(K, N)\) and Alexandrov entropy-degree inequality</span></div>
+    <div class="thm_thmcontent"><p>    For any closed orientable non-collapsed \(\mathsf{RCD}(K, N)\) space \((X, \mathsf{d}, \mathcal{H}^N)\) (or closed orientable \(N\)-dimensional Alexandrov space without boundary, Remark 4.3) and continuous map \(f : X \to Y\) to a closed oriented negatively curved locally symmetric \(N\)-manifold \(Y\), </p>
+<div class="displaymath" id="a0000000022">
+  \[ \mathrm{ind}_H(f)\, h(\widetilde{Y})^N\, \mathcal{H}^N(Y) \le |\deg (f)|\, h(\widetilde{Y})^N\, \mathcal{H}^N(Y) \le h(\overline{X})^N\, \mathcal{H}^N(X). \]
+</div>
+</div>
+
+    <a class="latex_link" href="sect0005.html#thm_rcd_entropy_degree_inequality">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_entropy_degree_inequality" class="lean_decl">RCDEntropyDegree.RCD.rcd_entropy_degree_inequality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_rankOne_entropy_degree_theorem" class="lean_decl">RCDEntropyDegree.RCD.rcd_rankOne_entropy_degree_theorem</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_homological_index_entropy_inequality" class="lean_decl">RCDEntropyDegree.RCD.rcd_homological_index_entropy_inequality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.alexandrov_entropy_degree_inequality" class="lean_decl">RCDEntropyDegree.RCD.alexandrov_entropy_degree_inequality</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_rcd_equality_rigidity_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_rcd_equality_rigidity" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">5.5</span><span class="theorem_thmtitle">Theorem 1.1 Part 2: Mass-Jacobian sandwich and equality-case rigidity</span></div>
+    <div class="thm_thmcontent"><p>    When \(\deg (f) \ne 0\), \(|\deg (f)| = [\pi _1(Y) : f_* \pi _1(X)] = k \ge 1\), and equality holds in Theorem 1.1, homothetic rescaling by \(c = h(\overline{X})/h(\widetilde{Y})\) and lifting to the degree-\(k\) cover \(p : \widehat{Y} \to Y\) give \(|\deg (\hat{f})| = 1\) and \(\mathcal{H}_c^N(X) = \mathcal{H}^N(\widehat{Y})\). The \(1\)-Lipschitz limit map \(\hat{F}_\infty : X \to \widehat{Y}\) then saturates the mass-Jacobian sandwich (\(\mathrm{Jac}_x \hat{F}_\infty = 1\) a.e.), is surjective, promotes to a global metric isometry \((X, c\, \mathsf{d}_X) \xrightarrow {\sim } \widehat{Y}\), and forces \(\mathcal{S}(X) = X \setminus \mathcal{R}_N(X) = \emptyset \). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#thm_rcd_equality_rigidity">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.ae_jacobian_eq_one_of_normalized_equality" class="lean_decl">RCDEntropyDegree.RCD.ae_jacobian_eq_one_of_normalized_equality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_entropy_degree_equality_rigidity" class="lean_decl">RCDEntropyDegree.RCD.rcd_entropy_degree_equality_rigidity</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_rcd_pointwise_jacobian_bound_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_rcd_pointwise_jacobian_bound" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">5.3</span><span class="theorem_thmtitle">Pointwise entropy-Jacobian bound on \(\mathcal{R}_N(X)\) (Proposition 3.4)</span></div>
+    <div class="thm_thmcontent"><p>    On the Euclidean approximate tangent space \(\mathrm{Tan}(X, x) \cong \mathbb {R}^N\) at \(x \in \mathcal{R}_N(X)\), applying the rank-one Busemann Hessian equation and determinant inequality from <span class="ttfamily">BCG.RankOne</span> yields \(\mathrm{Jac}_x F_s = |\det (d_x F_s)| \le (s / h(\widetilde{Y}))^N\). </p>
+</div>
+
+    <a class="latex_link" href="sect0005.html#thm_rcd_pointwise_jacobian_bound">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.rcd_approximate_jacobian_bound">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_sturm_cat0_variance_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_sturm_cat0_variance" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">2.3</span><span class="theorem_thmtitle">\(\mathrm{CAT}(0)\) midpoint deficit, Sturm variance inequality, and uniqueness</span></div>
+    <div class="thm_thmcontent"><p>    Under <span class="ttfamily">IsCATZeroMidpoint</span>, \(\mathcal{S}_{w, y, o}\) satisfies the strong midpoint convexity deficit \(\mathcal{S}_{w, y, o}(m) \le \frac{1}{2}\mathcal{S}_{w, y, o}(a) + \frac{1}{2}\mathcal{S}_{w, y, o}(b) - \frac{1}{4}\mathsf{d}_Y(a, b)^2\). Any minimizer \(q = \mathrm{bar}(\nu )\) therefore satisfies Sturm’s variance inequality \(\frac{1}{2}\mathsf{d}_Y(q, z)^2 \le \mathcal{S}_{w, y, o}(z) - \mathcal{S}_{w, y, o}(q)\) and is the unique global minimizer. </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm_sturm_cat0_variance">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint.strictMidJensenOn_halfSqDist" class="lean_decl">RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint.strictMidJensenOn_halfSqDist</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_midpoint_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_midpoint_le</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturm_variance_inequality" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturm_variance_inequality</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_unique_min" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_unique_min</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_sturm_equivariant_natural_map_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_sturm_equivariant_natural_map" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">2.4</span><span class="theorem_thmtitle">\(\pi _1\)-equivariance of Sturm natural maps and geodesic homotopy descent (Lemma 3.1)</span></div>
+    <div class="thm_thmcontent"><p>    For any isometric \(\pi _1(X)\)-representation \(\rho : \Gamma \curvearrowright \widetilde{Y}\), unique minimization forces \(\mathrm{bar}(\rho (\gamma )_* \nu ) = \rho (\gamma )\, \mathrm{bar}(\nu )\). Combining with \(\Gamma \)-equivariance of \(w_s(x, z)\) yields \(\rho \)-equivariance of the lifted natural map \(\overline{F}_s\) and of the geodesic homotopy \(\overline{H}_s\), which therefore descends to a homotopy \(H_s : X \times [0, 1] \to Y\) between \(f\) (\(t = 0\)) and \(F_s\) (\(t = 1\)). </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#thm_sturm_equivariant_natural_map">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_isometry" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_isometry</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmBarycenter_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmBarycenter_equivariant</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmNaturalMap_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmNaturalMap_equivariant</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_zero" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_one" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_one</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_equivariant</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_zero" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_one" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_one</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="thm_wenger_homotopy_surjectivity_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="thm_wenger_homotopy_surjectivity" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">4.4</span><span class="theorem_thmtitle">Wenger homotopy invariance, surjectivity, and homological index (Lemma 2.6, Cor. 2.8, Rmk. 4.2)</span></div>
+    <div class="thm_thmcontent"><p>    Since \(\partial T = 0\) and \(\mathcal{H}^{N+1}(Y) = 0\), Wenger’s homotopy formula forces \((f_1)_\#  T = (f_0)_\#  T\) and \(\deg (f_1) = \deg (f_0)\) across Lipschitz homotopies. Any map with \(\deg (f) \ne 0\) is surjective, degree multiplies across covers (\(\deg (p \circ \hat{f}) = \deg (p)\deg (\hat{f})\)), and Mitsuishi’s homological index satisfies \(\mathrm{ind}_H(f) \mid |\deg (f)|\) and \(\mathrm{ind}_H(f) \le |\deg (f)|\). </p>
+</div>
+
+    <a class="latex_link" href="sect0004.html#thm_wenger_homotopy_surjectivity">LaTeX</a>
+    
+    
+  <div class="tooltip">
+      <span class="lean_link">Lean</span>
+      <ul class="tooltip_list">
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.wenger_homotopy_invariance" class="lean_decl">RCDEntropyDegree.RCD.wenger_homotopy_invariance</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.surjective_of_degree_ne_zero" class="lean_decl">RCDEntropyDegree.RCD.surjective_of_degree_ne_zero</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.degree_comp_of_pushforward" class="lean_decl">RCDEntropyDegree.RCD.degree_comp_of_pushforward</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.homologicalIndex_dvd_natAbs_degree" class="lean_decl">RCDEntropyDegree.RCD.homologicalIndex_dvd_natAbs_degree</a></li>
+        
+           <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.homologicalIndex_le_natAbs_degree" class="lean_decl">RCDEntropyDegree.RCD.homologicalIndex_le_natAbs_degree</a></li>
+        
+      </ul>
+  </div>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+</div>
+</div> <!-- content -->
+</div> <!-- wrapper -->
+<script src="js/jquery.min.js" type="text/javascript"></script>
+
+<script src="js/d3.min.js"></script>
+<script src="js/hpcc.min.js"></script>
+<script src="js/d3-graphviz.js"></script>
+
+<script type="text/javascript">
+const graphContainer = d3.select("#graph");
+const width = graphContainer.node().clientWidth;
+const height = graphContainer.node().clientHeight;
+
+
+if (window.location.protocol !== "file:") graphContainer.graphviz({useWorker: false})
+    .width(width)
+    .height(height)
+    .fit(true)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	thm_cmmp_mass_properties	[color=green,		fillcolor="#1CAC78",		label=thm_cmmp_mass_properties,		shape=ellipse,		style=filled];	thm_lipschitz_degree_pushforward	[color=green,		fillcolor="#1CAC78",		label=thm_lipschitz_degree_pushforward,		shape=ellipse,		style=filled];	thm_cmmp_mass_properties -> thm_lipschitz_degree_pushforward	[style=dashed];	lem_mass_jacobian_pushforward	[color=green,		fillcolor="#1CAC78",		label=lem_mass_jacobian_pushforward,		shape=ellipse,		style=filled];	thm_lipschitz_degree_pushforward -> lem_mass_jacobian_pushforward	[style=dashed];	thm_wenger_homotopy_surjectivity	[color=green,		fillcolor="#1CAC78",		label=thm_wenger_homotopy_surjectivity,		shape=ellipse,		style=filled];	thm_lipschitz_degree_pushforward -> thm_wenger_homotopy_surjectivity	[style=dashed];	thm_rcd_entropy_degree_inequality	[color=green,		fillcolor="#1CAC78",		label=thm_rcd_entropy_degree_inequality,		shape=ellipse,		style=filled];	lem_mass_jacobian_pushforward -> thm_rcd_entropy_degree_inequality	[style=dashed];	thm_wenger_homotopy_surjectivity -> thm_rcd_entropy_degree_inequality	[style=dashed];	def_mm_volume_entropy	[color=green,		fillcolor="#B0ECA3",		label=def_mm_volume_entropy,		shape=box,		style=filled];	thm_basepoint_bishop_gromov	[color=green,		fillcolor="#1CAC78",		label=thm_basepoint_bishop_gromov,		shape=ellipse,		style=filled];	def_mm_volume_entropy -> thm_basepoint_bishop_gromov	[style=dashed];	thm_equivariant_weights	[color=green,		fillcolor="#1CAC78",		label=thm_equivariant_weights,		shape=ellipse,		style=filled];	def_mm_volume_entropy -> thm_equivariant_weights	[style=dashed];	thm_homothetic_cover_invariance	[color=green,		fillcolor="#1CAC78",		label=thm_homothetic_cover_invariance,		shape=ellipse,		style=filled];	thm_basepoint_bishop_gromov -> thm_homothetic_cover_invariance	[style=dashed];	thm_sturm_equivariant_natural_map	[color=green,		fillcolor="#1CAC78",		label=thm_sturm_equivariant_natural_map,		shape=ellipse,		style=filled];	thm_equivariant_weights -> thm_sturm_equivariant_natural_map	[style=dashed];	thm_rcd_equality_rigidity	[color=green,		fillcolor="#1CAC78",		label=thm_rcd_equality_rigidity,		shape=ellipse,		style=filled];	thm_homothetic_cover_invariance -> thm_rcd_equality_rigidity	[style=dashed];	thm_sturm_equivariant_natural_map -> thm_rcd_equality_rigidity	[style=dashed];	def_ncrcd_alexandrov	[color=green,		fillcolor="#B0ECA3",		label=def_ncrcd_alexandrov,		shape=box,		style=filled];	def_metric_jacobian	[color=green,		fillcolor="#B0ECA3",		label=def_metric_jacobian,		shape=box,		style=filled];	def_ncrcd_alexandrov -> def_metric_jacobian	[style=dashed];	thm_ncrcd_singular_strata	[color=green,		fillcolor="#1CAC78",		label=thm_ncrcd_singular_strata,		shape=ellipse,		style=filled];	def_ncrcd_alexandrov -> thm_ncrcd_singular_strata	[style=dashed];	def_cmmp_currents	[color=green,		fillcolor="#B0ECA3",		label=def_cmmp_currents,		shape=box,		style=filled];	def_ncrcd_alexandrov -> def_cmmp_currents	[style=dashed];	def_metric_jacobian -> lem_mass_jacobian_pushforward	[style=dashed];	thm_rcd_pointwise_jacobian_bound	[color=green,		fillcolor="#1CAC78",		label=thm_rcd_pointwise_jacobian_bound,		shape=ellipse,		style=filled];	def_metric_jacobian -> thm_rcd_pointwise_jacobian_bound	[style=dashed];	thm_ncrcd_singular_strata -> thm_cmmp_mass_properties	[style=dashed];	lem_regular_values_full_measure	[color=green,		fillcolor="#1CAC78",		label=lem_regular_values_full_measure,		shape=ellipse,		style=filled];	thm_ncrcd_singular_strata -> lem_regular_values_full_measure	[style=dashed];	def_cmmp_currents -> thm_cmmp_mass_properties	[style=dashed];	def_regular_values_degree	[color=green,		fillcolor="#B0ECA3",		label=def_regular_values_degree,		shape=box,		style=filled];	def_cmmp_currents -> def_regular_values_degree	[style=dashed];	thm_rcd_pointwise_jacobian_bound -> thm_rcd_entropy_degree_inequality	[style=dashed];	lem_regular_values_full_measure -> thm_lipschitz_degree_pushforward	[style=dashed];	def_regular_values_degree -> lem_regular_values_full_measure	[style=dashed];	def_sturm_functional	[color=green,		fillcolor="#B0ECA3",		label=def_sturm_functional,		shape=box,		style=filled];	lem_sturm_growth_basepoint	[color=green,		fillcolor="#1CAC78",		label=lem_sturm_growth_basepoint,		shape=ellipse,		style=filled];	def_sturm_functional -> lem_sturm_growth_basepoint	[style=dashed];	thm_sturm_cat0_variance	[color=green,		fillcolor="#1CAC78",		label=thm_sturm_cat0_variance,		shape=ellipse,		style=filled];	lem_sturm_growth_basepoint -> thm_sturm_cat0_variance	[style=dashed];	thm_sturm_cat0_variance -> thm_sturm_equivariant_natural_map	[style=dashed];	thm_rcd_entropy_degree_inequality -> thm_rcd_equality_rigidity	[style=dashed];}`)
+    .on("end", interactive);
+
+latexLabelEscaper = function(label) {
+  return label.replace(/\./g, '\\.').replace(/:/g, '\\:')
+}
+
+clickNode = function() {
+  $("#statements div").hide()
+  var node_id = $('text', this).text();
+  $('.thm').hide();
+  $('#'+latexLabelEscaper(node_id)).show().children().show();
+}
+document.addEventListener("DOMContentLoaded", function() { try { interactive(); } catch (e) {} });
+function interactive() {
+    $("span#legend_title").on("click", function () {
+           $(this).siblings('dl').toggle();
+        })
+
+    d3.selectAll('.node')
+        .attr('pointer-events', 'fill')
+        .on('click', function () {
+           var title = d3.select(this).selectAll('title').text().trim();
+           $('#statements > div').hide()
+           $('.thm').hide();
+           $('#'+latexLabelEscaper(title)+'_modal').show().children().show().children().show();
+           $('#statements').show()
+        });
+
+    d3.selectAll('.dep-closebtn').on('click', function() {
+        var modal =
+            d3.select(this).node().parentNode.parentNode.parentNode ;
+        d3.select(modal).style('display', 'none');
+    });
+}
+
+</script>
+
+</body>
+</html>

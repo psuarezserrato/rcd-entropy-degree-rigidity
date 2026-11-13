@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</title>
+<link rel="next" href="sect0003.html" title="Non-Collapsed RCD(K, N) Structure and CMMP Orientation Currents" />
+<link rel="prev" href="sect0001.html" title="Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling" />
+<link rel="up" href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Regular Values, Lipschitz Degree, and Homotopy Invariance</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000003">2 Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def_sturm_functional">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">2.1</span>
+    <span class="definition_thmtitle">Sturm’s renormalized \(d^2\)-barycenter functional and geodesic homotopy</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#def_sturm_functional">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmSummand" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmSummand</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   For a probability weight \(w\) supported at points \(y_i\) in a metric space \((Y, \mathsf{d}_Y)\) and reference basepoint \(o \in Y\), Sturm’s renormalized \(d^2\)-barycenter functional is \(\mathcal{S}_{w, y, o}(z) = \sum _i w_i (\mathsf{d}_Y(y_i, z)^2 - \mathsf{d}_Y(o, y_i)^2)\). Together with the \(\mathrm{CAT}(0)\) semi-parallelogram midpoint predicate <span class="ttfamily">IsCATZeroMidpoint</span>, this supports the lifted geodesic homotopy \(\overline{H}_s(x, t)\) and its quotient descent \(H_s : X \times [0, 1] \to Y\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_sturm_growth_basepoint">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">2.2</span>
+    <span class="lemma_thmtitle">First-moment linear growth bound and basepoint independence</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#lem_sturm_growth_basepoint">#</a>
+    
+    <a class="icon proof" href="sect0002.html#a0000000010"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#def_sturm_functional">Definition 2.1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmSummand_basepoint_self" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmSummand_basepoint_self</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmSummand_sub_sturmSummand" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmSummand_sub_sturmSummand</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.abs_sturmSummand_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.abs_sturmSummand_le</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_basepoint_self" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_basepoint_self</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_eq_two_mul_metricEnergy_sub" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_eq_two_mul_metricEnergy_sub</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_sub_basepoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_sub_basepoint</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_basepoint" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_basepoint</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_metricEnergy" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_min_iff_metricEnergy</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.continuous_sturmFunctional" class="lean_decl">RCDEntropyDegree.MetricMeasure.continuous_sturmFunctional</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.abs_sturmFunctional_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.abs_sturmFunctional_le</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>    Sturm’s summand satisfies \(|\mathsf{d}(y, z)^2 - \mathsf{d}(o, y)^2| \le \mathsf{d}(o, z)(\mathsf{d}(o, z) + 2\, \mathsf{d}(o, y))\), requiring only finite first moments, and shifting \(o_1 \mapsto o_2\) adds a constant independent of \(z\). Consequently, \(\mathcal{S}_{w, y, o}\) is continuous and shares exact global minimizers with <span class="ttfamily">metricEnergy</span>. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000010">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Factor \(a^2 - b^2 = (a - b)(a + b)\) with triangle inequality bounds and note that \(\mathcal{S}_{w, y, o}(z) = 2\, \mathrm{metricEnergy}(w, y, z) - \sum _i w_i\, \mathsf{d}(o, y_i)^2\).</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_sturm_cat0_variance">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">2.3</span>
+    <span class="theorem_thmtitle">\(\mathrm{CAT}(0)\) midpoint deficit, Sturm variance inequality, and uniqueness</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#thm_sturm_cat0_variance">#</a>
+    
+    <a class="icon proof" href="sect0002.html#a0000000011"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#lem_sturm_growth_basepoint">Lemma 2.2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint.strictMidJensenOn_halfSqDist" class="lean_decl">RCDEntropyDegree.MetricMeasure.IsCATZeroMidpoint.strictMidJensenOn_halfSqDist</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_midpoint_le" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_midpoint_le</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturm_variance_inequality" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturm_variance_inequality</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_unique_min" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_unique_min</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Under <span class="ttfamily">IsCATZeroMidpoint</span>, \(\mathcal{S}_{w, y, o}\) satisfies the strong midpoint convexity deficit \(\mathcal{S}_{w, y, o}(m) \le \frac{1}{2}\mathcal{S}_{w, y, o}(a) + \frac{1}{2}\mathcal{S}_{w, y, o}(b) - \frac{1}{4}\mathsf{d}_Y(a, b)^2\). Any minimizer \(q = \mathrm{bar}(\nu )\) therefore satisfies Sturm’s variance inequality \(\frac{1}{2}\mathsf{d}_Y(q, z)^2 \le \mathcal{S}_{w, y, o}(z) - \mathcal{S}_{w, y, o}(q)\) and is the unique global minimizer. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000011">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Weighted summation of the \(\mathrm{CAT}(0)\) semi-parallelogram law and comparison at \(m = \mathrm{mid}(q, z)\) against minimality at \(q\).</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_sturm_equivariant_natural_map">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">2.4</span>
+    <span class="theorem_thmtitle">\(\pi _1\)-equivariance of Sturm natural maps and geodesic homotopy descent (Lemma 3.1)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#thm_sturm_equivariant_natural_map">#</a>
+    
+    <a class="icon proof" href="sect0002.html#a0000000012"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#thm_sturm_cat0_variance">Theorem 2.3</a></li>
+          
+          <li><a href="sect0001.html#thm_equivariant_weights">Theorem 1.3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmFunctional_isometry" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmFunctional_isometry</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmBarycenter_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmBarycenter_equivariant</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.sturmNaturalMap_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.sturmNaturalMap_equivariant</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_zero" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_one" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_one</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_equivariant" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyLift_equivariant</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_zero" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_one" class="lean_decl">RCDEntropyDegree.MetricMeasure.geodesicHomotopyQuotient_one</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    For any isometric \(\pi _1(X)\)-representation \(\rho : \Gamma \curvearrowright \widetilde{Y}\), unique minimization forces \(\mathrm{bar}(\rho (\gamma )_* \nu ) = \rho (\gamma )\, \mathrm{bar}(\nu )\). Combining with \(\Gamma \)-equivariance of \(w_s(x, z)\) yields \(\rho \)-equivariance of the lifted natural map \(\overline{F}_s\) and of the geodesic homotopy \(\overline{H}_s\), which therefore descends to a homotopy \(H_s : X \times [0, 1] \to Y\) between \(f\) (\(t = 0\)) and \(F_s\) (\(t = 1\)). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000012">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Isometry covariance of \(\mathcal{S}_{w, y, o}\) transfers the minimizing property of \(q\) to \(\rho (\gamma ) q\), and uniqueness yields equality.</p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0001.html" title="Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0003.html" title="Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

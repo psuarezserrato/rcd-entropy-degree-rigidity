@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Regular Values, Lipschitz Degree, and Homotopy Invariance</title>
+<link rel="next" href="sect0005.html" title="Rectifiable Jacobians and RCD(K, N) Entropy-Degree Rigidity" />
+<link rel="prev" href="sect0003.html" title="Non-Collapsed RCD(K, N) Structure and CMMP Orientation Currents" />
+<link rel="up" href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4" />
+<link rel="stylesheet" href="styles/theme-blue.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Metric-Measure Volume Entropy, Bishop–Gromov Growth, and Scaling</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Sturm’s \(\mathrm{CAT}(0)\) Barycenter and Equivariant Natural Maps</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents</span></a>
+ </li>
+<li class=" active current">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Regular Values, Lipschitz Degree, and Homotopy Invariance</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity</span></a>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000005">4 Regular Values, Lipschitz Degree, and Homotopy Invariance</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="def_regular_values_degree">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">4.1</span>
+    <span class="definition_thmtitle">Singular value image, regular value locus, and Lipschitz pushforward degree</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#def_regular_values_degree">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0003.html#def_cmmp_currents">Definition 3.3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.singularValueImage" class="lean_decl">RCDEntropyDegree.RCD.singularValueImage</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.regularValueSet" class="lean_decl">RCDEntropyDegree.RCD.regularValueSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.regularDomainSet" class="lean_decl">RCDEntropyDegree.RCD.regularDomainSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>    For a map \(f : X \to Y\), \(\Sigma _f := f(\mathcal{S}(X))\) is the singular value image, \(V_f := Y \setminus \Sigma _f\) is the regular value locus, and \(U_f := f^{-1}(V_f)\) is the regular domain locus. <span class="ttfamily">LipschitzDegreePushforward</span> encodes \(f_\#  T = \deg (f)[\! [Y ]\! ]\) via Federer constancy on \(Y\) together with the local degree integral formula on \(U_f\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lem_regular_values_full_measure">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">4.2</span>
+    <span class="lemma_thmtitle">Openness and full measure of regular values \(V_f = Y \setminus f(\mathcal{S}(X))\) (Lemma 2.3)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lem_regular_values_full_measure">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000015"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#def_regular_values_degree">Definition 4.1</a></li>
+          
+          <li><a href="sect0003.html#thm_ncrcd_singular_strata">Theorem 3.2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.regularDomainSet_subset_manifoldSet" class="lean_decl">RCDEntropyDegree.RCD.regularDomainSet_subset_manifoldSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isCompact_singularValueImage" class="lean_decl">RCDEntropyDegree.RCD.isCompact_singularValueImage</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isClosed_singularValueImage" class="lean_decl">RCDEntropyDegree.RCD.isClosed_singularValueImage</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isOpen_regularValueSet" class="lean_decl">RCDEntropyDegree.RCD.isOpen_regularValueSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.isOpen_regularDomainSet" class="lean_decl">RCDEntropyDegree.RCD.isOpen_regularDomainSet</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.hausdorffMeasureCodimOne_singularValueImage_eq_zero" class="lean_decl">RCDEntropyDegree.RCD.hausdorffMeasureCodimOne_singularValueImage_eq_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.volumeMeasure_regularValueSet_eq_univ" class="lean_decl">RCDEntropyDegree.RCD.volumeMeasure_regularValueSet_eq_univ</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>    For any continuous map \(f : X \to Y\) (\(X\) compact, \(Y\) Hausdorff), \(U_f \subseteq \mathcal{M}(X)\), \(\Sigma _f\) is compact and closed, and \(V_f, U_f\) are open. When \(f\) is Lipschitz, \(\mathcal{H}^{N-1}(\Sigma _f) = 0\) and \(\mathcal{H}^N(V_f) = \mathcal{H}^N(Y)\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000015">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Continuous image of the closed compact set \(\mathcal{S}(X)\) and Lipschitz Hausdorff bound \(\mathcal{H}^{N-1}(f(\mathcal{S}(X))) \le \mathrm{Lip}(f)^{N-1}\mathcal{H}^{N-1}(\mathcal{S}(X)) = 0\).</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_lipschitz_degree_pushforward">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">4.3</span>
+    <span class="theorem_thmtitle">Current pushforward degree identity and Lipschitz volume bound (Proposition 2.5)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#thm_lipschitz_degree_pushforward">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000016"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#lem_regular_values_full_measure">Lemma 4.2</a></li>
+          
+          <li><a href="sect0003.html#thm_cmmp_mass_properties">Theorem 3.4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.totalMass_pushforward_eq_abs_degree_mul_volume" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.totalMass_pushforward_eq_abs_degree_mul_volume</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.degree_eq_inv_volume_mul_integral" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.degree_eq_inv_volume_mul_integral</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.abs_degree_mul_volume_le_lip_pow_mul_volume" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.abs_degree_mul_volume_le_lip_pow_mul_volume</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.LipschitzDegreePushforward.manifoldVolume_le_totalVolume_of_one_lipschitz" class="lean_decl">RCDEntropyDegree.RCD.LipschitzDegreePushforward.manifoldVolume_le_totalVolume_of_one_lipschitz</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    A Lipschitz map \(f : X \to Y\) satisfies \(\mathbf{M}(f_\#  T) = |\deg (f)|\, \mathcal{H}^N(Y)\), \(\deg (f) = \mathcal{H}^N(Y)^{-1} \int _Y \deg (f; U_X, y)\, d\mathcal{H}^N(y)\), and \(|\deg (f)|\, \mathcal{H}^N(Y) \le \mathrm{Lip}(f)^N \mathcal{H}^N(X)\) (in particular \(\mathcal{H}^N(Y) \le \mathcal{H}^N(X)\) when \(f\) is \(1\)-Lipschitz and \(\deg (f) \ne 0\)). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000016">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Combines \(f_\#  T = \deg (f)[\! [Y ]\! ]\) with mass homogeneity \(\mathbf{M}(f_\#  T) \le \mathrm{Lip}(f)^N \mathbf{M}(T)\).</p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="thm_wenger_homotopy_surjectivity">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">4.4</span>
+    <span class="theorem_thmtitle">Wenger homotopy invariance, surjectivity, and homological index (Lemma 2.6, Cor. 2.8, Rmk. 4.2)</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#thm_wenger_homotopy_surjectivity">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000017"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#thm_lipschitz_degree_pushforward">Theorem 4.3</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.wenger_homotopy_invariance" class="lean_decl">RCDEntropyDegree.RCD.wenger_homotopy_invariance</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.surjective_of_degree_ne_zero" class="lean_decl">RCDEntropyDegree.RCD.surjective_of_degree_ne_zero</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.degree_comp_of_pushforward" class="lean_decl">RCDEntropyDegree.RCD.degree_comp_of_pushforward</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.homologicalIndex_dvd_natAbs_degree" class="lean_decl">RCDEntropyDegree.RCD.homologicalIndex_dvd_natAbs_degree</a></li>
+          
+          <li><a href="https://github.com/psuarezserrato/rcd-entropy-degree-rigidity/find/#doc/RCDEntropyDegree.RCD.homologicalIndex_le_natAbs_degree" class="lean_decl">RCDEntropyDegree.RCD.homologicalIndex_le_natAbs_degree</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>    Since \(\partial T = 0\) and \(\mathcal{H}^{N+1}(Y) = 0\), Wenger’s homotopy formula forces \((f_1)_\#  T = (f_0)_\#  T\) and \(\deg (f_1) = \deg (f_0)\) across Lipschitz homotopies. Any map with \(\deg (f) \ne 0\) is surjective, degree multiplies across covers (\(\deg (p \circ \hat{f}) = \deg (p)\deg (\hat{f})\)), and Mitsuishi’s homological index satisfies \(\mathrm{ind}_H(f) \mid |\deg (f)|\) and \(\mathrm{ind}_H(f) \le |\deg (f)|\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000017">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Injectivity of \(d \mapsto d[\! [Y ]\! ]\) equates degrees from \((f_1)_\#  T = (f_0)_\#  T\); if \(\mathrm{range}(f)\) missed an open ball \(U \subseteq Y\), positive measure of \(U\) would contradict support nullity of \(\deg (f)[\! [Y ]\! ]\).</p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0003.html" title="Non-Collapsed \(\mathsf{RCD}(K, N)\) Structure and CMMP Orientation Currents"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Entropy-Degree Rigidity for Closed Orientable Non-Collapsed RCD(K, N) Spaces in Lean 4"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0005.html" title="Rectifiable Jacobians and \(\mathsf{RCD}(K, N)\) Entropy-Degree Rigidity"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

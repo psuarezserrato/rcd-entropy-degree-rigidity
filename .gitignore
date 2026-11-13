@@ -1,0 +1,11 @@
+.lake/
+.DS_Store
+.licenses/
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+blueprint/src/web.paux

@@ -1,0 +1,29 @@
+% Print-specific macro definitions.
+% Emulates/neutralizes plasTeX blueprint commands so traditional TeX engines compile without errors.
+
+\newcommand{\lean}[1]{}
+\newcommand{\discussion}[1]{}
+\newcommand{\leanok}{}
+\newcommand{\mathlibok}{}
+\newcommand{\notready}{}
+\newcommand{\home}[1]{}
+\newcommand{\github}[1]{}
+\newcommand{\dochome}[1]{}
+\newcommand{\graphcolor}[3]{}
+
+% Fallback definitions in case expl3/xparse are unavailable
+\providecommand{\uses}[1]{}
+\providecommand{\proves}[1]{}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand{\uses}{m}
+ {
+  \clist_map_inline:nn{#1}{\vphantom{\ref{##1}}}%
+  \ignorespaces
+ }
+\DeclareDocumentCommand{\proves}{m}
+ {
+  \clist_map_inline:nn{#1}{\vphantom{\ref{##1}}}%
+  \ignorespaces
+ }
+\ExplSyntaxOff
